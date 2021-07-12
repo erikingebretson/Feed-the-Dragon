@@ -1,0 +1,126 @@
+body {
+    background-image: url('/lib/assets/bg-art.jpg');
+    background-position: center;
+    background-size: cover;
+    /* height: auto;
+    width: auto; */
+}
+.top-nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(220,48,35, .3);
+    height: 10px;
+    margin-right: 10px;
+    margin-left: 10px;
+    height: auto;
+    border-radius: 1.5mm;
+}
+
+.title {
+    margin: 10px 10px 0px 10px;
+    font-weight: 900;
+    font-size: 48px;
+    color: rgba(53,30,28, .9);
+}
+
+.connects > ul {
+    display: flex;
+    width: auto;
+    height: auto;
+    border-radius: 1.5mm;
+}
+
+.connects > ul > li {
+    padding: 10px 10px;
+    
+    font-size: 22px;
+    color: rgba(53,30,28);
+}
+
+.connects > ul > li:hover {
+    background-color: rgba(220,48,35, .8);
+    border-radius: 1.5mm;
+}
+
+canvas {
+    border-radius: 1.5mm;
+    background-color: rgba(129,123,105, .4);
+}
+
+
+
+.main {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+aside {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-color: rgba(77,100,108, .6);
+    margin: 10px;
+    border-radius: 1.5mm;
+    color: rgba(53,30,28);
+    font-size: 22px;
+}
+
+.dragon-box {
+    height: auto;
+    padding: 10px;
+    margin: 10px;
+    background-color: rgba(77,100,108, .6);
+    border-radius: 1.5mm;
+}
+
+.legend > ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: auto;
+    width: auto;
+    padding: 10px;
+    margin: 10px;
+    background-color: rgba(77,100,108, .6);
+    border-radius: 1.5mm;
+
+}
+
+.legend > ul > li {
+    margin: 10px;
+} 
+
+.bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    width: auto;
+    /* background-color: rgba(77,100,108, .6); */
+    border-radius: 1.5mm;
+    margin: 10px;
+}
+
+.bottom > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(77,100,108, .8);
+    margin: 10px;
+    border-radius: 1.5mm;
+    height: 150px;
+}
+
+.instructions > ul {
+    display: flex;
+    height: auto;
+}
+
+.instructions > ul > li {
+    margin: 15px 10px;
+    font-size: 18px;
+    color: rgba(53,30,28);
+}

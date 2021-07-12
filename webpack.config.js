@@ -40,5 +40,6 @@ module.exports = (env, argv) => {
         config.devtool = 'eval-source-map';
     }
 
+    
     return config;
 }
