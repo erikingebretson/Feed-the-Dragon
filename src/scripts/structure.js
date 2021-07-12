@@ -38,13 +38,13 @@ class Structure {
         const ctx = board.getContext('2d');
         if (this.type !== 'house') {
             ctx.fillRect(pos[0], pos[1], 20, 20)
-            ctx.fillStyle = 'orange';
+            ctx.fillStyle = '	#592B1F';
         } else {
             ctx.beginPath();
             ctx.arc(pos[0], pos[1], 10, 0, 2 * Math.PI);
-            ctx.strokeStyle = 'purple';
+            ctx.strokeStyle = '#C91F37';
             ctx.stroke();
-            ctx.fillStyle = 'purple';
+            ctx.fillStyle = '#C91F37';
             ctx.fill();
         }
     };

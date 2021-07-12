@@ -8,7 +8,8 @@ window.addEventListener('DOMContentLoaded', () => {
     // const board = document.querySelector('canvas');
     // const ctx = board.getContext('2d');    
     
-    const level1 = new Game(10, 5, 20, 800)
+    const level1 = new Game(10, 5, 1, 20, 800)
+    level1.play();
     console.log(level1.structures)
     let struct = level1.structures[7]
     console.log(struct.foodItems)
