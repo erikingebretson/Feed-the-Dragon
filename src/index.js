@@ -5,14 +5,13 @@ import Structure from './scripts/structure';
 window.addEventListener('DOMContentLoaded', () => {
     
     
-    // const board = document.querySelector('canvas');
-    // const ctx = board.getContext('2d');    
-    
-    const level1 = new Game(10, 5, 1, 15, 800)
+
+    //testing    
+    const level1 = new Game(10, 5, 1, 5, 800)
     level1.play();
-    console.log(level1.structures)
-    let struct = level1.structures[7]
-    console.log(struct.foodItems)
+    // console.log(level1.structures)
+    // console.log(struct.foodItems)
+    // let struct = level1.structures[7]
     // console.log(struct.feedDragon())
     // const level2 = new Game(5, 3, 15, 1000)
     // const level3 = new Game(5, 3, 15, 1500)
