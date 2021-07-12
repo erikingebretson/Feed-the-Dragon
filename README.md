@@ -35,12 +35,12 @@ Technologies, Libraries, API’s
 
 Implementation Timeline
     * Weekend:
-        * Write Final proposal and create project including the required object oriented programming for each class required (board, structure, user, game)
+        * Write Final proposal and create project, starting the required object oriented programming for each class required (board, structure, user, game)
     * Monday:
-        * Wrap up object creation and logic for instantiating a game and the required pieces
+        * Wrap up object creation and logic for instantiating a game and the required pieces/player
     * Tuesday:
-        * Work on rendering pieces on board 
+        * Render pieces on board, running thorough QA of player and structures.
     * Wednesday:
-        * Implement user controlls
+        * Implement user controlls and timer logic
     * Thursday:
         * Any outstanding functionality updates and finishing touches on styling

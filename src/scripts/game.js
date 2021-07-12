@@ -3,28 +3,38 @@
 import Structure from "./structure";
 
 class Game {
-    constructor(numHouses, numMarkets, seconds, requiredDragonFood) {
+    constructor(numHouses, numMarkets, seconds, numDragonFood) {
         this.numHouses = numHouses;
         this.numMarkets = numMarkets;
         this.seconds = seconds;
-        this.requiredDragonFood = requiredDragonFood;
-        this.structres = [];
+        this.numDragonFood = numDragonFood;
+        this.structures = [];
+        this.makeHouses(this.numHouses);
+        this.makeMarkets(this.numMarkets);
     }
 
     play() {
-        //instantiate houses & markets
-        //set timer
-        //
+        //stage game timer
+        //track player moves
         
     }
 
     makeHouses(num) {
-
+        let houses = [];
+        for (let i=0; i<num; i++) {
+            this.structures.push(new Structure('house'))
+        }
+        return houses;
     }
 
-    numMarkets(num) {
-     
+    makeMarkets(num) {
+        let markets = [];
+        for (let i = 0; i < num; i++) {
+            this.structures.push(new Structure('market'))
+        }
+        return markets;
     }
+
 }
 
 
