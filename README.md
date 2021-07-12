@@ -9,20 +9,20 @@ Background:
 
 Functionality & MVPs
     In Feed the Dragon, users will be able to:
-            * Start and reset a Game
-            * Toggle sound on and off
-            * Navigate on the board, move the player around board coordinates to visit fixed structures/elements on the board 
-            * Reveal the content of a structure
+            Start and reset a Game
+            Toggle sound on and off
+            Navigate on the board, move the player around board coordinates to visit fixed structures/elements on the board 
+            Reveal the content of a structure
     In addition, this project will include
         * A Popup style how to instructions element
         * README File
         * Possible Next steps:
             * CSS Animations for
-                * Game instantiation: scrolling circle
-                * The Dragon’s patience: load bar
+                Game instantiation: scrolling circle
+                The Dragon’s patience: load bar
             * Character Engagement 
-                * When a user finds food, the user icon in the legend will make a positive movement
-                * When the dragon is getting impatient, the dragon and character icons in the legend will start to vibrate
+                When a user finds food, the user icon in the legend will make a positive movement
+                When the dragon is getting impatient, the dragon and character icons in the legend will start to vibrate
 
 
 Wireframe
@@ -30,17 +30,20 @@ Wireframe
 
 Technologies, Libraries, API’s
     * Canvas(potentially SVG) Animations to render Board and players
-    * CSS animations sprinkled in for surprise and delight
+    * CSS animations sprinkled in for surprise and delight in user experience
     * Javascript source files bundled via Webpack
 
 Implementation Timeline
     * Weekend:
-        * Write Final proposal and create project, starting the required object oriented programming for each class required (board, structure, user, game)
+        Write Final proposal and create project, starting the required object oriented programming for each class required (board, structure, user, game)
     * Monday:
-        * Wrap up object creation and logic for instantiating a game and the required pieces/player
+        Wrap up object creation and logic for instantiating a game and the required structures and player
     * Tuesday:
-        * Render pieces on board, running thorough QA of player and structures.
+        Render pieces and player on board, and any logic updates needed for formatting pieces
+        Thorough QA of player and structures
+        Begin implementation of player controlls
     * Wednesday:
-        * Implement user controlls and timer logic
+        Finalize user controlls and timer logic
+        CSS animations Dragon patience, load wheel, etc.
     * Thursday:
-        * Any outstanding functionality updates and finishing touches on styling
+        Any outstanding functionality updates and finishing touches on styling
