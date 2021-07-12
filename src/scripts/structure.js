@@ -1,11 +1,12 @@
 
 class Structure {
-    constructor(type) {
-        this.pos = [Math.floor(Math.random() * 600), Math.floor(Math.random() * 600)];
+    constructor(type, pos) {
+        this.pos = pos;
         this.type = type;
         this.food = { 'rice': 100, 'fish': 200, 'pork': 300 };
         this.foodItems = this.getFood(type, this.food);
         this.placeStructure(this.pos);
+        this.feedDragon.bind(this);
     }
 
     getFood(type, obj) {
@@ -18,7 +19,7 @@ class Structure {
             }
         } else {
             for (let i = 0; i < 1; i++) {
-                item = Object.entries(this.food)[Math.floor(Math.random() * 3)]
+                item = Object.entries(this.food)[Math.floor(Math.random() * 2)]
                 foods = foods.concat(item)
             }
         };
@@ -45,9 +46,7 @@ class Structure {
             ctx.stroke();
             ctx.fillStyle = 'purple';
             ctx.fill();
-            
         }
-        // ctx.fillRect(pos[0], pos[1], 20, 20);
     };
 }
 

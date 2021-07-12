@@ -22,7 +22,8 @@ class Game {
     makeHouses(num) {
         let houses = [];
         for (let i=0; i<num; i++) {
-            this.structures.push(new Structure('house'))
+            let pos = [Math.floor(Math.random() * 600), Math.floor(Math.random() * 600)]
+            this.structures.push(new Structure('house', pos));
         }
         return houses;
     }
@@ -30,7 +31,8 @@ class Game {
     makeMarkets(num) {
         let markets = [];
         for (let i = 0; i < num; i++) {
-            this.structures.push(new Structure('market'))
+            let pos = [Math.floor(Math.random() * 600), Math.floor(Math.random() * 600)]
+            this.structures.push(new Structure('market', pos));
         }
         return markets;
     }

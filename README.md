@@ -26,7 +26,7 @@ Functionality & MVPs
 
 
 Wireframe
-* https://wireframe.cc/r2fDcG 
+* https://wireframe.cc/r2fDcG
 
 Technologies, Libraries, API’s
     * Canvas(potentially SVG) Animations to render Board and players
