@@ -21,6 +21,7 @@ class Game {
 
         this.makeHouses(this.numHouses);
         this.makeMarkets(this.numMarkets);
+        this.startTimer(this.seconds);
 
         //stage game timer
         //track player moves
@@ -28,14 +29,21 @@ class Game {
     }
 
     startTimer(seconds) {
+        let time = seconds;
+        if ( time > 0) {
+            setInterval( (seconds) => {
+                let ul = document.querySelector('.timer');
+                ul.innerHTML = `${time}`;
+                if (time > 0) time--;
+            }, 1000)
 
+        }
     }
 
     makeHouses(num) {
         let houses = [];
         for (let i=0; i<num; i++) {
-            let pos = [Math.floor(Math.random() * 580 + 20), Math.floor(Math.random() * 580 + 20)]
-            // let pos = [Math.floor(Math.random() * 600), Math.floor(Math.random() * 600)]
+            let pos = [Math.floor((Math.random() * 560) + 20), (Math.floor(Math.random() * 560) + 20)]
             this.structures.push(new Structure('house', pos));
         }
         return houses;
@@ -44,8 +52,7 @@ class Game {
     makeMarkets(num) {
         let markets = [];
         for (let i = 0; i < num; i++) {
-            let pos = [Math.floor(Math.random() * 580 + 20), Math.floor(Math.random() * 580 + 20)]
-            // let pos = [Math.floor(Math.random() * 600), Math.floor(Math.random() * 600)]
+            let pos = [Math.floor((Math.random() * 560) + 20), (Math.floor(Math.random() * 560) + 20)]
             this.structures.push(new Structure('market', pos));
         }
         return markets;

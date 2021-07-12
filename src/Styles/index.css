@@ -62,18 +62,11 @@ aside {
     border-radius: 1.5mm;
     color: rgba(53,30,28);
     font-size: 22px;
-}
-
-.left-title {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    height: auto;
     width: 200px;
 }
 
-.left-title > .title {
-    align-self: center;
+
+aside > .title {
     height: auto;
     width: auto;
 }
@@ -81,7 +74,16 @@ aside {
 .dragon-box {
     height: auto;
     padding: 10px;
-    margin: 10px;
+    /* margin: 10px; */
+    background-color: rgba(77,100,108, .6);
+    border-radius: 1.5mm;
+}
+
+.timer {
+    height: auto;
+    padding: 10px;
+    /* margin: 10px; */
+    font-size: 28px;
     background-color: rgba(77,100,108, .6);
     border-radius: 1.5mm;
 }
