@@ -8,33 +8,35 @@ class Board {
         this.structures = [];
         this.makeHouses();
         this.makeMarkets();
-        this.draw();
-    }
-    
-    
-    draw() {
         this.placeStructures();
     }
+    
 
     makeHouses() {
         for (let i = 0; i < this.numHouses; i++) {
-            let pos = [Math.floor((Math.random() * 560) + 20), (Math.floor(Math.random() * 560) + 20)]
+            let pos = this.generatePos()
             this.structures.push(new Structure('house', pos));
         }
     }
 
+
     makeMarkets() {
         for (let i = 0; i < this.numMarkets; i++) {
-            let pos = [Math.floor((Math.random() * 560) + 20), (Math.floor(Math.random() * 560) + 20)]
+            let pos = this.generatePos()
             this.structures.push(new Structure('market', pos));
         }
+    }
+
+    generatePos() {
+        return [Math.floor((Math.random() * 560) + 20), (Math.floor(Math.random() * 560) + 20)]
     }
 
     placeStructures() {
         const board = document.querySelector('canvas');
         const ctx = board.getContext('2d');
+        
         this.structures.forEach( ele => {
-            if (ele.type !== 'house') {
+            if (ele.type === 'market') {
                 ctx.fillRect(ele.pos[0], ele.pos[1], 20, 20)
                 ctx.fillStyle = '#592B1F';
             } else {
