@@ -11,6 +11,10 @@ class Game {
         this.board = new Board(numHouses, numMarkets);
         this.user = new User(300, 300);
         this.event = ''
+        this.gameInc = ''
+        this.lastVisited = ''
+        this.trackScore();
+
     }
 
     promptGame() {
@@ -22,9 +26,10 @@ class Game {
         let timer = setInterval(() => {
             let ul = document.querySelector('.timer');
             ul.innerHTML = `00:${this.seconds}`;
+            this.tips();
             if (this.seconds > 0) {
                 this.seconds--;
-            } else if (this.second === 0) {
+            } else if (this.second <= 0) {
                 this.gameStatus();
             }
         }, 1000)
@@ -33,65 +38,101 @@ class Game {
             clearInterval(timer)
         }
     }
+
+    trackScore() {
+        let scoreBoard = document.querySelector('.food');
+        scoreBoard.innerHTML = `${this.foundFood} / ${this.requiredDragonFood}`;
+    }
     
     play() {
         this.user.place();
         this.action();
         window.addEventListener('keyup', (event) => {
-            // console.log(event)
             if (event.key === 'Shift') {
                 this.startTimer();
             } 
         } )
-
         //stage game timer
-        //track player moves
-        
     }
 
     action() {
-        let temp = ''
         this.board.placeStructures();
         window.addEventListener('keydown', (event) => {
-            clearInterval(temp)
+            clearInterval(this.gameInc)
             this.event = event
             const board = document.querySelector('canvas');
             const ctx = board.getContext('2d');
             ctx.clearRect(0, 0, innerWidth, innerHeight);
-            temp = setInterval( () => this.work(), 5);
+            this.gameInc = setInterval( () => this.work(), 15);
             this.user.place();
+            this.trackScore();
+            this.gameStatus();
         })
     }
 
     work() {
-        //handle border strikes here - look at user's x & y vals to manipulate the direction
-        // let temp = ''
-        // clearInterval(temp)
-        // console.log(this.user)
-        // temp = setInterval(() => this.flow(action), 5);
         let action = this.event
         this.user.move(action);
+        this.collisionCheck();
         this.board.placeStructures();
     }
         
-    // flow(action) {
-    //     this.user.move(action);
-    //     this.board.placeStructures();
-    // }
+    collisionCheck() {
+        //if time, revisit collision logic for structure siae difference
+        this.board.structures.forEach( structure => {
+            let dist = this.distance(structure.pos, [this.user.x, this.user.y])
+            if (dist <= 30) {
+                clearInterval(this.gameInc)
+                this.incrementScore(structure);
+            }
+        })
+    }
 
-    gameStatus() {
-        if (this.requiredDragonFood <= this.foundFood ) {
-            //beat level
+    distance(corda, cordb) {
+        let sum1 = (corda[0] + 25) - (cordb[0])
+        let sum2 = (corda[1] + 20) - (cordb[1])
+        sum1 = sum1 * sum1
+        sum2 = sum2 * sum2
+        let final = sum1 + sum2
+        return Math.sqrt(final)
+    }
+
+    incrementScore(structure) {
+        if (structure.pos === this.lastVisited.pos ) {
+            this.tips( structure, structure, structure)
         } else {
-            this.lost()
+            let foodItem = structure.foodItems.shift();
+            let itemScore= structure.foodItems.shift();
+            this.foundFood += itemScore;
+            this.tips(foodItem, itemScore);
+            this.lastVisited = structure;
         }
     }
 
-    
+
+    gameStatus() {
+        if (this.requiredDragonFood <= this.foundFood ) {
+            this.beatLevel();
+        } else if ( this.seconds <= 0 ) {
+            this.lost();
+        }
+    }
+
+    tips(foodItem, points, sameStructure) {
+        let tip = document.querySelector('.tip');
+        if (sameStructure) {
+            tip.innerHTML = `Find a new structure! <br><br> Cannot ask the same structure for food twice in a row.`;
+        } else if (foodItem) {
+            tip.innerHTML = `${foodItem}, that's ${points} points!`;
+        } else if (this.seconds <= 5) {
+            tip.innerHTML = `Hurry!<br><br>Time is running out!`;
+        }
+    }
 
     beatLevel() {
         //inform user they beat the level
         //instantiate the next level
+        alert(`you beat level ${this.level}`)
     }
 
     won() {
@@ -100,59 +141,8 @@ class Game {
 
     lost() {
         // inform user of lost game
-        // alert('you Lost')
+        alert('you Lost')
     }
-
-    // startTimer() {
-    //     setInterval( () => {
-    //         let ul = document.querySelector('.timer');
-    //         ul.innerHTML = `00:${this.seconds}`;
-    //         if (this.seconds > 0) {
-    //             this.seconds--; 
-    //         } else if (this.second === 0) {
-    //             this.gameStatus();
-    //         }
-    //     }, 1000)
-    // }
-
-
-    // makeHouses(num) {
-    //     let houses = [];
-    //     for (let i=0; i<num; i++) {
-    //         let pos = [Math.floor((Math.random() * 560) + 20), (Math.floor(Math.random() * 560) + 20)]
-    //         this.structures.push(new Structure('house', pos));
-    //     }
-    //     return houses;
-    // }
-
-    // makeMarkets(num) {
-    //     let markets = [];
-    //     for (let i = 0; i < num; i++) {
-    //         let pos = [Math.floor((Math.random() * 560) + 20), (Math.floor(Math.random() * 560) + 20)]
-    //         this.structures.push(new Structure('market', pos));
-    //     }
-    //     return markets;
-    // }
-
-    // placeStructures() {
-    //     const board = document.querySelector('canvas');
-    //     const ctx = board.getContext('2d');
-    //     this.structures.forEach( ele => {
-    //         if (ele.type !== 'house') {
-    //             ctx.fillRect(ele.pos[0], ele.pos[1], 20, 20)
-    //             ctx.fillStyle = '#592B1F';
-    //         } else {
-    //             ctx.beginPath();
-    //             ctx.arc(ele.pos[0], ele.pos[1], 10, 0, 2 * Math.PI);
-    //             ctx.strokeStyle = '#C91F37';
-    //             ctx.stroke();
-    //             ctx.fillStyle = '#C91F37';
-    //             ctx.fill();
-    //         }
-    //     })
-    // };
-
-    
 }
 
 export default Game;

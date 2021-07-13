@@ -16,50 +16,67 @@
 </head>
 <body>
     <header class="top-nav">
-        
-        <nav class="connects">
-        <ul>
-            <li><a href="https://www.linkedin.com/in/erik-ingebretson/" target="_blank">Github</a></li>
-            <li><a href="https://github.com/erikingebretson" target="_blank">LinkedIn</a></li>
-            <li><a href="mailto:erikingebretson&gmail.com" target="_blank">Email</a></li>
-        </ul>
+        <div class="dragon-box">
+            <img src="lib/assets/dragon-icon.jpg" alt="Dragon Img">
+        </div> 
+        <nav class="title">
+            <h1 >Feed the Dragon</h1>
+            <!-- ul swap the connects out for actual social icons -->
+            <ul class="connects"> 
+                <li><a href="https://github.com/erikingebretson" target="_blank">Github</a></li>
+                <li><a href="https://www.linkedin.com/in/erik-ingebretson/" target="_blank">LinkedIn</a></li>
+                <li><a href="mailto:erikingebretson&gmail.com" target="_blank">Email</a></li>
+            </ul>
         </nav>
         
     </header>
     <main class="main">
         <aside >
-            <h1 class="title">Feed the Dragon</h1>
-            <div class="dragon-box">
-                <img src="" alt="Dragon Img">
-            </div> 
             <div class="countdown">
                 <ul>Seconds Remaining:</ul>
                 <ul class="timer">00:00</ul>
             </div>
-            <div class="instructions">
-                <ul>
-                    <li>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Corporis, error?</li>
-                    <li>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur, nisi?</li>
-                    <li>Lorem ipsum dolor sit amet.</li>
-                </ul>
+            <div class="patience">
+                <ul>Dragon's Patience:</ul>
+                <ul class="load-bar"></ul>
+            </div>
+            <div class="score">
+                <ul>Score:</ul>
+                <ul class="food">00:00</ul>
+            </div>
+            <div class="game-feed">
+                <ul>Tip:</ul>
+                <ul class="tip">Keep an eye here for hints</ul>
             </div>
         </aside>
         <canvas class="canvas" height="600" width="600"></canvas> 
 
         <aside>
         <div class="legend">
-            <ul>
-                <li>Character Icon</li>
-                <li>Food Icon Reference</li>
-                <li>House Icon Reference</li>
-                <li>Store Icon Reference</li>
+            <ul>Legend
+                <li><img src="" alt="character"> Character</li>
+                <li><img src="" alt="food"> Food</li>
+                <li><img id="house-img" src="lib/assets/house-icon2.png" alt="house"> House </li>
+                <li><img id="market-img" src="lib/assets/market-icon.png" alt="market"> Market</li>
+            </ul>
+        </div>
+        <div class="instructions">
+            <ul>Game Play
+                <!-- <li>A hungry dragon has visited you village, you don't want to see what will happen if he gets too hungry!</li> -->
+                <li>Fill the dragon up before time runs out!</li>
+                <li>Visit structures to find food. Market's will have a greater selection of food.</li>
+                <li>Keep in mind that you can only make one visit to a structure at a time!</li>
             </ul>
         </div>
         </aside> 
     </main>
-
-    <section class="bottom">
-        
-    </section>
+    <footer>
+        <div class="attrubution">
+            <ul>
+                <li><a href="https://www.vecteezy.com/free-vector/dragon-icon" target="_blank">Dragon Icon Vectors by Vecteezy</a></li>
+                <li><a href="https://www.vecteezy.com/free-vector/hut-icon" target="_blank">Hut Icon Vectors by Vecteezy</a></li>
+            </ul>
+        </div>
+    </footer>
 </body>
 </html>

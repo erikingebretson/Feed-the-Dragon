@@ -5,30 +5,47 @@ body {
 }
 .top-nav {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 10px;
     margin-right: 10px;
     margin-left: 10px;
     height: auto;
     border-radius: 1.5mm;
 }
 
+.dragon-box > img {
+    height: 150px;
+    width: auto;
+    mix-blend-mode: multiply;
+    /* height: fit-content;
+    width: fit-content; */
+}
+
 .title {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.title > h1 {
+    margin: 10px;
+    margin-bottom: 0px;
     font-weight: 900;
     font-size: 48px;
     color: rgba(53,30,28, .9);
 }
 
-.connects > ul {
+.connects {
     display: flex;
     width: auto;
     height: auto;
     border-radius: 1.5mm;
 }
 
-.connects > ul > li {
+.connects > li {
     padding: 15px 10px 0px 10px;
     font-size: 28px;
     font-weight: 700;
@@ -42,7 +59,7 @@ body {
 
 canvas {
     border-radius: 1.5mm;
-    background-color: rgba(129,123,105, .8);
+    background-color: rgba(129,123,105, .65);
 }
 
 .main {
@@ -57,7 +74,7 @@ aside {
     align-content: center;
     align-items: center;
     justify-content: space-around;
-    background-color: rgba(77,100,108, .4);
+    background-color: rgba(129,123,105, .85);
     margin: 10px;
     border-radius: 1.5mm;
     color: rgba(53,30,28);
@@ -65,48 +82,94 @@ aside {
     width: 200px;
 }
 
-
-aside > .title {
-    height: auto;
-    width: auto;
-}
-
-.dragon-box {
-    height: auto;
-    padding: 10px;
-    /* margin: 10px; */
-    background-color: rgba(77,100,108, .6);
-    border-radius: 1.5mm;
+aside img {
+    width: 50px;
+    mix-blend-mode: multiply;
 }
 
 .countdown {
-    font-size: 28px;
-    font-weight: 700;
-    /* color: 	#C91F37; */
-    /* background-color: rgba(77,100,108); */
-    border-radius: 1.5mm;
-}
-.timer {
-    height: auto;
-    padding: 10px;
-    /* margin: 10px; */
-    font-size: 48px;
-    font-weight: 900;
-    color: 	#C91F37;
-    background-color: rgba(77,100,108);
-    border-radius: 1.5mm;
-}
-
-.instructions > ul {
     display: flex;
     flex-direction: column;
-    height: auto;
+    align-content: center;
+    align-items: center; 
+    font-size: 28px;
+    font-weight: 700;
+    border-radius: 1.5mm;
+    width: 180px;
 }
 
-.instructions > ul > li {
-    margin: 15px 10px;
-    font-size: 18px;
-    color: rgba(53,30,28);
+.timer {
+    height: 40px;
+    width: 80%;
+    padding: 10px;
+    font-size: 48px;
+    font-weight: 900;
+    color: 	rgba(220,48,35);
+    background-color: rgba(77,100,108, .9);
+    border-radius: 1.5mm;
+}
+
+.patience {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center; 
+    font-size: 28px;
+    font-weight: 700;
+    border-radius: 1.5mm;
+}
+
+.load-bar {
+    height: 40px;
+    width: 90%;
+    padding: 10px;
+    font-size: 48px;
+    font-weight: 900;
+    color: 	rgba(220,48,35);
+    background-color: rgba(77,100,108, .9);
+    border-radius: 1.5mm;
+}
+
+.score {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    font-size: 28px;
+    font-weight: 700;
+    border-radius: 1.5mm;
+}
+
+.food {
+    height: 40px;
+    width: 90%;    
+    padding: 10px;
+    font-size: 48px;
+    font-weight: 900;
+    color: 	rgba(220,48,35);
+    background-color: rgba(77,100,108, .9);
+    border-radius: 1.5mm;
+}
+
+.game-feed {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    font-size: 28px;
+    font-weight: 700;
+    border-radius: 1.5mm;
+}
+
+.tip {
+    height: auto;
+    padding: 10px;
+    font-size: 20px;
+    font-weight: 300;
+    color: 	rgba(53,30,28);
+    height: 100px;
+    width: 150px;
+    background-color: rgba(77,100,108, .9);
+    border-radius: 1.5mm;
 }
 
 .legend > ul {
@@ -117,11 +180,39 @@ aside > .title {
     width: auto;
     padding: 10px;
     margin: 10px;
-    background-color: rgba(77,100,108, .6);
+    background-color: rgba(77,100,108, .9);
     border-radius: 1.5mm;
 
 }
 
+
 .legend > ul > li {
+    text-decoration: none;
     margin: 10px;
 } 
+
+
+.instructions > ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* text-decoration: underline; */
+    height: auto;
+    width: auto;
+    padding: 10px;
+    margin: 10px;
+    background-color: rgba(77,100,108, .9);
+    border-radius: 1.5mm;
+
+}
+
+.instructions > ul > li {
+    margin: 10px;
+    font-size: 20px;
+    font-weight: 300;
+} 
+
+footer {
+    display: flex;
+    justify-content: center;
+}

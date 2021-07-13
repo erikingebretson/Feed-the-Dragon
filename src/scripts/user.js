@@ -16,27 +16,11 @@ class User {
         
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
-        ctx.strokeStyle = 'red';
+        ctx.strokeStyle = '#CB7E1F';
         ctx.stroke();
-        ctx.fillStyle = 'red';
+        ctx.fillStyle = '#CB7E1F';
         ctx.fill();
     }      
-
-    // move(event) { // working on border controll
-    //     // console.log(event)
-    //     let key = ''
-    //     key = event.key ? event.key : key
-
-    //     if (event.key === 'ArrowUp' ) {
-    //         this.moveUp();
-    //     } else if (event.key === 'ArrowDown') {
-    //         this.moveDown();
-    //     } else if (event.key === 'ArrowLeft' ) {
-    //         this.moveLeft();
-    //     } else if (event.key === 'ArrowRight') {
-    //         this.moveRight();
-    //     }
-    // }
 
     move(event) {
         if (event.key === 'ArrowUp' && (this.y - 2) > 15) {
@@ -69,6 +53,8 @@ class User {
         this.x += 2
         this.place();
     }  
+
+    
 }
 
 export default User;
