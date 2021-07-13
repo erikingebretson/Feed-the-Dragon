@@ -9,6 +9,7 @@ window.addEventListener('DOMContentLoaded', () => {
     //testing    
     const level1 = new Game(1, 15, 800, 10, 5)
     level1.play();
+    console.log(level1.board.structures)
     // console.log(level1.structures)
     // console.log(struct.foodItems)
     // let struct = level1.structures[7]

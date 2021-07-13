@@ -11,6 +11,9 @@ class Board {
         this.placeStructures();
     }
     
+    generatePos() {
+        return [Math.floor((Math.random() * 560) + 20), (Math.floor(Math.random() * 560) + 20)]
+    }
 
     makeHouses() {
         for (let i = 0; i < this.numHouses; i++) {
@@ -25,10 +28,6 @@ class Board {
             let pos = this.generatePos()
             this.structures.push(new Structure('market', pos));
         }
-    }
-
-    generatePos() {
-        return [Math.floor((Math.random() * 560) + 20), (Math.floor(Math.random() * 560) + 20)]
     }
 
     placeStructures() {

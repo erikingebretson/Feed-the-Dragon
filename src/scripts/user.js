@@ -1,6 +1,5 @@
 import Structure from "./structure";
 
-
 class User {
     constructor(x, y) {
         this.x = x;
@@ -13,7 +12,7 @@ class User {
     place() {
         const board = document.querySelector('canvas');
         const ctx = board.getContext('2d');
-        // ctx.clearRect(0, 0, innerWidth, innerHeight);
+        ctx.clearRect(0, 0, innerWidth, innerHeight);
         
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
@@ -21,18 +20,32 @@ class User {
         ctx.stroke();
         ctx.fillStyle = 'red';
         ctx.fill();
-    }
-                    
+    }      
+
+    // move(event) { // working on border controll
+    //     // console.log(event)
+    //     let key = ''
+    //     key = event.key ? event.key : key
+
+    //     if (event.key === 'ArrowUp' ) {
+    //         this.moveUp();
+    //     } else if (event.key === 'ArrowDown') {
+    //         this.moveDown();
+    //     } else if (event.key === 'ArrowLeft' ) {
+    //         this.moveLeft();
+    //     } else if (event.key === 'ArrowRight') {
+    //         this.moveRight();
+    //     }
+    // }
 
     move(event) {
-        console.log('im here')
-        if (event.key === 'ArrowUp' && (this.y - 2) > 0) {
+        if (event.key === 'ArrowUp' && (this.y - 2) > 15) {
             this.moveUp();
-        } else if (event.key === 'ArrowDown' && (this.y + 2) < 600) {
+        } else if (event.key === 'ArrowDown' && (this.y + 2) < 585) {
             this.moveDown();
-        } else if (event.key === 'ArrowLeft' && (this.x - 2) > 0) {
+        } else if (event.key === 'ArrowLeft' && (this.x - 2) > 15) {
             this.moveLeft();
-        } else if (event.key === 'ArrowRight' && (this.x + 2) < 600) {
+        } else if (event.key === 'ArrowRight' && (this.x + 2) < 585) {
             this.moveRight();
         }
     }
@@ -55,8 +68,7 @@ class User {
     moveRight() {
         this.x += 2
         this.place();
-    }
-    
+    }  
 }
 
 export default User;

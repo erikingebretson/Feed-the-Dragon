@@ -10,7 +10,7 @@ class Game {
         this.requiredDragonFood = requiredDragonFood;
         this.board = new Board(numHouses, numMarkets);
         this.user = new User(300, 300);
-        // this.event = ''
+        this.event = ''
     }
 
     promptGame() {
@@ -35,43 +35,49 @@ class Game {
     }
     
     play() {
-        this.keyStroke();
         this.user.place();
         this.action();
-        // this.startTimer();
+        window.addEventListener('keyup', (event) => {
+            // console.log(event)
+            if (event.key === 'Shift') {
+                this.startTimer();
+            } 
+        } )
 
         //stage game timer
         //track player moves
         
     }
 
-    keyStroke() {
-        let event = ''
+    action() {
+        let temp = ''
+        this.board.placeStructures();
         window.addEventListener('keydown', (event) => {
-            event = this.event;
-        })
-        this.flow(this.action(event));
-    }
-
-    action(event) { // store event variable outside of function and THEN try calling with the stored event variable 
-        // window.addEventListener('keydown', (event) => {
+            clearInterval(temp)
+            this.event = event
             const board = document.querySelector('canvas');
             const ctx = board.getContext('2d');
             ctx.clearRect(0, 0, innerWidth, innerHeight);
-            this.work(event);
+            temp = setInterval( () => this.work(), 5);
             this.user.place();
-        // })
+        })
     }
 
-    work(event) {
-        this.user.move(event)
+    work() {
+        //handle border strikes here - look at user's x & y vals to manipulate the direction
+        // let temp = ''
+        // clearInterval(temp)
+        // console.log(this.user)
+        // temp = setInterval(() => this.flow(action), 5);
+        let action = this.event
+        this.user.move(action);
         this.board.placeStructures();
     }
-
-    flow(arg) {
-        let temp = setInterval(arg, 10)
-        if (window.addEventListener('keydown', clearInterval(temp))) { }
-    }
+        
+    // flow(action) {
+    //     this.user.move(action);
+    //     this.board.placeStructures();
+    // }
 
     gameStatus() {
         if (this.requiredDragonFood <= this.foundFood ) {
