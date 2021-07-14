@@ -73,8 +73,9 @@ body {
 }
 
 .dragon-box > img {
-    height: 100px;
+    height: 70px;
     width: auto;
+    margin: 20px 20px;
     /* mix-blend-mode: multiply; */
     /* z-index: 7; */
     /* height: fit-content;
@@ -85,8 +86,6 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-content: center;
-    align-items: center;
 }
 
 .title > h1 {
@@ -95,6 +94,26 @@ body {
     font-weight: 900;
     font-size: 48px;
     color: rgba(53,30,28, .9);
+}
+
+.connects {
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: auto;
+    border-radius: 1.5mm;
+}
+
+.connects > li {
+    padding: 15px 10px 0px 10px;
+    font-size: 28px;
+    font-weight: 700;
+    color: rgba(53,30,28);
+}
+
+.connects > li:hover {
+    background-color: rgba(220,48,35);
+    border-radius: 1.5mm;
 }
 
 .popup-container {
@@ -159,9 +178,38 @@ body {
     margin: 25px 25px;
 }
 
+.img-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.img-button > img {
+    /* align-self: flex-start; */
+    width: 120px;
+    height: auto;
+}
+
+#popup-button {
+    border: none;
+    background-color: transparent;
+    font-weight: 900;
+    padding: 5px 15px;
+    margin: 30px 10px 60px 10px;
+    font-size: 45px;
+    color:	rgba(220,48,35);
+    /* color:	rgba(53,30,28, .9); */
+    /* color:	rgba(255, 255, 255, .9); */
+    background-color: rgba(77,100,108);
+    border: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    border-radius: 1.5mm;
+}
+
 .controls {
     background-color: rgba(117,125,117, .45);
-    /* font-size: 22px; */
+    font-size: 34px;
     font-weight: 900;
     border-radius: 1.5mm;
     margin: 20px 35px;
@@ -173,22 +221,6 @@ body {
     font-size: 22px;
 }
 
-#popup-button {
-    border: none;
-    background-color: transparent;
-    font-weight: 900;
-    padding: 5px 15px;
-    margin: 30px 10px 60px 10px;
-    font-size: 45px;
-    color:	rgba(220,48,35, .9);
-    /* color:	rgba(53,30,28, .9); */
-    /* color:	rgba(255, 255, 255, .9); */
-    background-color: rgba(77,100,108);
-    border: 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
-    border-radius: 1.5mm;
-}
-
 .start-button, .nxt-level {
     border: none;
     background-color: transparent;
@@ -196,7 +228,7 @@ body {
     height: 40px;
     width: 80%;
     font-size: 22px;
-    color:	rgba(143,29,33);
+    color:	rgba(220,48,35);
     background-color: rgba(77,100,108);
     border: 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
@@ -205,34 +237,6 @@ body {
 
 .controls li {
     margin: 5px 5px;
-}
-
-.popup > img {
-    align-self: flex-start;
-    width: 120px;
-    height: auto;
-    position: fixed;
-    bottom: 8%;
-    left: 31%;
-}
-
-.connects {
-    display: flex;
-    width: auto;
-    height: auto;
-    border-radius: 1.5mm;
-}
-
-.connects > li {
-    padding: 15px 10px 0px 10px;
-    font-size: 28px;
-    font-weight: 700;
-    color: rgba(53,30,28);
-}
-
-.connects > ul > li:hover {
-    background-color: rgba(143,29,33, .8);
-    border-radius: 1.5mm;
 }
 
 canvas {
@@ -286,7 +290,7 @@ aside {
     height: 40px;
     width: 80%;
     font-size: 22px;
-    color:	rgba(143,29,33);
+    color:	rgba(220,48,35);
     background-color: rgba(77,100,108);
     border: 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
@@ -310,7 +314,7 @@ aside {
     padding: 10px;
     font-size: 32px;
     font-weight: 900;
-    color: 	rgba(143,29,33);
+    color: 	rgba(220,48,35);
     background-color: rgba(77,100,108, .7);
     border-radius: 1.5mm;
 }
@@ -326,7 +330,7 @@ aside {
     padding: 10px;
     font-size: 48px;
     font-weight: 900;
-    color: 	rgba(143,29,33);
+    color: 	rgba(220,48,35);
     background-color: rgba(77,100,108, .7);
     border-radius: 1.5mm;
 }
@@ -356,7 +360,7 @@ aside {
     
     font-size: 48px;
     font-weight: 900;
-    color: 	rgba(143,29,33);
+    color: 	rgba(167, 82, 76);
     background-color: rgba(77,100,108, .9);
     border-radius: 1.5mm;
 }
@@ -368,7 +372,7 @@ aside {
     font-size: 28px;
     font-weight: 700;
     color: rgba(53,30,28);
-    background-color: rgba(143,29,33);
+    background-color: rgba(220,48,35);
     border-radius: 1.5mm;
 }
 
@@ -388,7 +392,7 @@ aside {
     padding: 10px;
     font-size: 44px;
     font-weight: 900;
-    color: 	rgba(143,29,33);
+    color: 	rgba(220,48,35, .9);
     background-color: rgba(77,100,108, .9);
     border-radius: 1.5mm;
 }

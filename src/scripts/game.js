@@ -93,9 +93,9 @@ class Game {
         // const board = document.querySelector('canvas');
         // const ctx = board.getContext('2d');
         // ctx.clearRect(0, 0, innerWidth, innerHeight);
+        // this.board.moveDragons();
         
         let action = this.event
-        // this.board.moveDragons();
         this.user.move(action);
         this.collisionCheck();
         this.board.placeStructures();
@@ -164,12 +164,19 @@ class Game {
         const ctx = board.getContext('2d');
         ctx.clearRect(0, 0, innerWidth, innerHeight);
         
-        let popup = document.querySelector('.countdown')
+        let button = document.querySelector('.countdown')
         let nxtButton = document.createElement('button')
         nxtButton.classList.add('nxt-level')
-        popup.innerHTML = `Waiting for you..`
-        nxtButton.innerHTML = "Next Level"
-        popup.appendChild(nxtButton)
+        if (this.level === 1) {
+            button.innerHTML = `Waiting for you..`
+            nxtButton.setAttribute('id','end-level-1')
+            nxtButton.innerHTML = "Level 2"
+        } else if (this.level === 2) {
+            button.innerHTML = `Final Round!`
+            nxtButton.setAttribute('id','end-level-2')
+            nxtButton.innerHTML = "Level 3"
+        }
+        button.appendChild(nxtButton)
 
     }
 

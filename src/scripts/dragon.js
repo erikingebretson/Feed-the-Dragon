@@ -8,7 +8,6 @@ class Dragon {
     place() {
         const board = document.querySelector('canvas');
         const ctx = board.getContext('2d');
-        // ctx.clearRect(0, 0, innerWidth, innerHeight);
         let dragon = document.getElementById("dragon-img")
         ctx.drawImage(dragon, this.x, this.y, 40, 40);
     }
