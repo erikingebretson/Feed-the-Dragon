@@ -5,11 +5,12 @@ import Board from  "./board";
 class Game {
     constructor(level, seconds, requiredDragonFood, numHouses, numMarkets) {
         this.level = level
+        this.levelStatus = 'incomplete'
         this.foundFood = 0;
         this.totalSeconds = seconds;
         this.seconds = seconds;
         this.timerSet = ''
-        this.timeStart = 0;
+        this.timerStart = 0;
         this.requiredDragonFood = requiredDragonFood;
         this.user = new User(300, 300, 2);
         this.board = new Board(numHouses, numMarkets, this.user);
@@ -29,7 +30,7 @@ class Game {
         li.classList.remove("start")
         li.classList.add("timer")
         li.innerHTML = `00:${this.seconds}`;
-
+        this.seconds --;
         this.timerSet = setInterval(() => {
             if (this.seconds > 9 ) {
                 li.innerHTML = `00:${this.seconds}`
@@ -41,9 +42,11 @@ class Game {
             if (this.seconds > 0) {
                 this.seconds--;
             } else if (this.second <= 0) {
-                this.gameStatus();
+                // this.gameStatus();
+                clearInterval(this.timerSet)
             }
         }, 1000)
+        this.gameStatus();
     }
 
     loadBar() {
@@ -56,16 +59,15 @@ class Game {
     
     play() {
         let liNode = document.createElement('li')
-        let ul = document.querySelector('.countdown')
-        ul.innerHTML = 'Seconds Remaining:'
-        let li = ul.appendChild(liNode)
+        let ulNode = document.querySelector('.timer')
+        ulNode.classList.remove('timer')
+        ulNode.innerHTML = 'Seconds Remaining:'
+        let li = ulNode.appendChild(liNode)
         li.innerHTML = `Press any key to Start`;
         li.classList.add("start")
         
-
         this.user.place();
         this.action();
-
     }
 
     action() { // main gameplay logic and flow here
@@ -82,9 +84,9 @@ class Game {
             this.user.place();
             this.gameStatus();
 
-            while (this.timeStart < 1) {
+            while (this.timerStart < 1) { // check for setting timer once per game
                 this.startTimer();
-                this.timeStart ++
+                this.timerStart ++
             }
         })
     }
@@ -164,19 +166,33 @@ class Game {
         const ctx = board.getContext('2d');
         ctx.clearRect(0, 0, innerWidth, innerHeight);
         
-        let button = document.querySelector('.countdown')
-        let nxtButton = document.createElement('button')
-        nxtButton.classList.add('nxt-level')
+        // this.levelStatus = 'complete'
+        // let button = document.querySelector('.countdown')
+        // let nxtButton = document.createElement('button')
+        // nxtButton.classList.add('nxt-level')
+        // if (this.level === 1) {
+        //     button.innerHTML = `Waiting for you..`
+        //     nxtButton.setAttribute('id','end-level-1')
+        //     nxtButton.innerHTML = "Level 2"
+        // } else if (this.level === 2) {
+        //     button.innerHTML = `Final Round!`
+        //     nxtButton.setAttribute('id','end-level-2')
+        //     nxtButton.innerHTML = "Level 3"
+        // }
+
+        this.levelStatus = 'complete'
+        let container = document.querySelector(".countdown")
+        let button1 = document.getElementById('end-level-1')
+        let button2 = document.querySelector('#end-level-2')
         if (this.level === 1) {
-            button.innerHTML = `Waiting for you..`
-            nxtButton.setAttribute('id','end-level-1')
-            nxtButton.innerHTML = "Level 2"
+            console.log(button1)
+            container.innerHTML = `Waiting for you..`
+            button1.classList.remove('button-off')
         } else if (this.level === 2) {
-            button.innerHTML = `Final Round!`
-            nxtButton.setAttribute('id','end-level-2')
-            nxtButton.innerHTML = "Level 3"
+            button = document.querySelector('#end-level-2')
+            button2.classList.remove('class', 'button-off')
         }
-        button.appendChild(nxtButton)
+        // button.appendChild(nxtButton)
 
     }
 

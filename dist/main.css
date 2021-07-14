@@ -303,6 +303,18 @@ aside {
     background-color: rgba(77,100,108, .2);
 }
 
+#end-level-1 {
+    display: none;
+}
+
+#end-level-2 {  
+    display: none;
+}
+
+.button-off {
+    display: none;
+}
+
 .start {
     display: flex;
     flex-direction: column;
@@ -330,7 +342,7 @@ aside {
     padding: 10px;
     font-size: 48px;
     font-weight: 900;
-    color: 	rgba(220,48,35);
+    color: rgba(220,48,35);
     background-color: rgba(77,100,108, .7);
     border-radius: 1.5mm;
 }

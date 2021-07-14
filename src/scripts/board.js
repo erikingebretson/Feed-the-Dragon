@@ -97,8 +97,10 @@ class Board {
         let string = `${foodItem}: ${itemScore}`
         const board = document.querySelector('canvas');
         const ctx = board.getContext('2d');
-        ctx.font = "26px Yanone Kaffeesatz";
-        ctx.fillText(string, (pos[0] - 25), (pos[1] - 25))
+        ctx.fillStyle ="#351E1C"
+        ctx.font = "32px Yanone Kaffeesatz";
+        // fix where text draws
+        ctx.fillText(string, (pos[0] - 15), (pos[1] - 18))
     }
 
     // generateDragon() {
