@@ -106,7 +106,7 @@ class Game {
         //if time, revisit collision logic for structure siae difference
         this.board.structures.forEach( structure => {
             let dist = this.distance(structure.pos, [this.user.x, this.user.y])
-            if (dist <= 30) {
+            if (dist <= 35) {
                 clearInterval(this.gameSet)
                 this.incrementScore(structure);
             }
@@ -114,8 +114,8 @@ class Game {
     }
 
     distance(corda, cordb) {
-        let sum1 = (corda[0] ) - (cordb[0])
-        let sum2 = (corda[1] ) - (cordb[1])
+        let sum1 = (corda[0]) - (cordb[0])
+        let sum2 = (corda[1]) - (cordb[1])
         sum1 = sum1 * sum1
         sum2 = sum2 * sum2
         let final = sum1 + sum2
@@ -157,8 +157,6 @@ class Game {
     }
 
     beatLevel() {
-        //inform user they beat the level
-        //instantiate the next level
         // alert(`you beat level ${this.level}`)
         clearInterval(this.gameSet)
         clearInterval(this.timerSet)
