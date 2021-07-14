@@ -6,9 +6,10 @@ class Game {
     constructor(level, seconds, requiredDragonFood, numHouses, numMarkets) {
         this.level = level
         this.foundFood = 0;
+        this.totalSeconds = seconds;
         this.seconds = seconds;
         this.timerSet = ''
-        this.time = 0;
+        this.timeStart = 0;
         this.requiredDragonFood = requiredDragonFood;
         this.board = new Board(numHouses, numMarkets);
         this.user = new User(300, 300);
@@ -35,6 +36,7 @@ class Game {
             } else {
                 li.innerHTML = `00:0${this.seconds}`
             }
+            this.loadBar();
             this.tips();
             if (this.seconds > 0) {
                 this.seconds--;
@@ -42,11 +44,15 @@ class Game {
                 this.gameStatus();
             }
         }, 1000)
-
-        if (this.foundFood >= this.requiredDragonFood) {
-            clearInterval(timer)
-        }
     }
+
+    loadBar() {
+        let bar = document.querySelector(".load-bar")
+        let num1 = this.totalSeconds - this.seconds 
+        let percent = Math.floor((num1 / this.totalSeconds) * 100) + '%'
+        bar.style.width = percent
+        // bar.innerHTML = percent
+    };
     
     play() {
         let liNode = document.createElement('li')
@@ -65,6 +71,7 @@ class Game {
     action() { // main gameplay logic and flow here
         this.board.placeStructures();
         window.addEventListener('keydown', (event) => {
+            this.trackScore();
             clearInterval(this.gameSet)
             this.event = event
             
@@ -74,12 +81,11 @@ class Game {
             
             this.gameSet = setInterval( () => this.directUser(), 15);
             this.user.place();
-            this.trackScore();
             this.gameStatus();
 
-            while (this.time < 1) {
+            while (this.timeStart < 1) {
                 this.startTimer();
-                this.time ++
+                this.timeStart ++
             }
         })
     }
@@ -123,7 +129,7 @@ class Game {
         } else {
             let foodItem = structure.foodItems.shift();
             let itemScore= structure.foodItems.shift();
-
+            this.trackScore();
             if (itemScore) {
                 this.foundFood += itemScore;
                 this.tips(foodItem, itemScore);
@@ -136,8 +142,10 @@ class Game {
     }
 
     gameStatus() {
+        this.trackScore();
         if (this.requiredDragonFood <= this.foundFood ) {
             this.beatLevel();
+            clearInterval(this.timerSet)
         } else if ( this.seconds <= 0 ) {
             this.lost();
         }
@@ -152,11 +160,6 @@ class Game {
         const board = document.querySelector('canvas');
         const ctx = board.getContext('2d');
         ctx.clearRect(0, 0, innerWidth, innerHeight);
-
-        // let li = document.querySelector('.start')
-        // li.classList.remove("start")
-        // li.classList.add("timer")
-        // li.innerHTML = `00:30`;
         
         let popup = document.querySelector('.countdown')
         let nxtButton = document.createElement('button')

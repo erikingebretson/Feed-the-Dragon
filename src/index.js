@@ -7,11 +7,25 @@ window.addEventListener('DOMContentLoaded', () => {
     const board = document.querySelector('canvas');
     const ctx = board.getContext('2d');
     ctx.font = "48px Yanone Kaffeesatz";
-    ctx.strokeStyle = "#351E1C";
+    ctx.fillStyle = "#351E1C";
     ctx.fillText("Feed the Dragon", 175, 50)
     ctx.font = "26px Yanone Kaffeesatz";
     ctx.fillText("A dragon has visited your village! Luckily the dragon is fairly ", 50, 120)
-    ctx.fillText("kind, but don’t let the dragon get hungry..", 5, 150)
+    ctx.fillText("kind, but we don't want to see it get hungry..", 50, 150)
+    
+    ctx.fillText("If the dragon’s patience runs out you village will be lost. It ", 50, 210)
+    ctx.fillText("will be up to you to gather the village’s food and make sure the", 50, 240)
+    ctx.fillText("dragon is fed before time runs out.", 50, 270)
+
+    ctx.font = "32px Yanone Kaffeesatz";
+    ctx.fillText("Controls", 250, 330)
+    ctx.font = "26px Yanone Kaffeesatz";
+    ctx.fillText("Arrow keys: will navigate your character through the village", 50, 380)
+    ctx.fillText("Space bar: will stop your character", 50, 410)
+
+    ctx.font = "28px Yanone Kaffeesatz";
+    ctx.fillText("Have fun :)", 250, 500)
+
 
     let buttonNode = document.createElement('button')
     let ul = document.querySelector('.countdown')
@@ -23,7 +37,7 @@ window.addEventListener('DOMContentLoaded', () => {
     
     button.addEventListener('click', (event) => {
         event.preventDefault();
-        const level1 = new Game(1, 5, 100, 6, 4);
+        const level1 = new Game(1, 25, 1000, 6, 4);
         level1.play();  
     });
 
