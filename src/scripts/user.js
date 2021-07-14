@@ -13,13 +13,8 @@ class User {
         const board = document.querySelector('canvas');
         const ctx = board.getContext('2d');
         ctx.clearRect(0, 0, innerWidth, innerHeight);
-        
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
-        ctx.strokeStyle = '#CB7E1F';
-        ctx.stroke();
-        ctx.fillStyle = '#CB7E1F';
-        ctx.fill();
+        let user = document.getElementById("hidden-img")
+        ctx.drawImage(user, this.x, this.y, 75, 40)
     }      
 
     move(event) {

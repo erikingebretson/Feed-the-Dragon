@@ -25,6 +25,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
     ctx.font = "28px Yanone Kaffeesatz";
     ctx.fillText("Have fun :)", 250, 500)
+    let user = document.getElementById("full-character")
+    ctx.drawImage(user, 40, 447, 115, 150)
 
 
     let buttonNode = document.createElement('button')

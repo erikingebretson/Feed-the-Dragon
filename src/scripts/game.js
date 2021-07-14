@@ -110,8 +110,8 @@ class Game {
     }
 
     distance(corda, cordb) {
-        let sum1 = (corda[0] + 25) - (cordb[0])
-        let sum2 = (corda[1] + 20) - (cordb[1])
+        let sum1 = (corda[0] ) - (cordb[0])
+        let sum2 = (corda[1] ) - (cordb[1])
         sum1 = sum1 * sum1
         sum2 = sum2 * sum2
         let final = sum1 + sum2
@@ -131,6 +131,7 @@ class Game {
             let itemScore= structure.foodItems.shift();
             this.trackScore();
             if (itemScore) {
+                this.board.foodMsg(foodItem, itemScore, structure);
                 this.foundFood += itemScore;
                 this.tips(foodItem, itemScore);
             } else {
@@ -194,9 +195,7 @@ class Game {
             tip.innerHTML = `Find a new structure! <br><br> Cannot ask the same structure for food twice in a row.`;
         } else if (foodItem && foodItem.includes('&#128531')) {
             tip.innerHTML = `${foodItem}`;
-        } else if (foodItem) {
-            tip.innerHTML = `${foodItem}, that's ${points} points!`;
-        } else if (this.seconds <= 3) {
+        }  else if (this.seconds <= 3) {
             tip.innerHTML = `Hurry!<br><br>Time is running out!`;
         }
     }

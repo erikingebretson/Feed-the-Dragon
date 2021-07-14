@@ -116,13 +116,21 @@ body {
 
 canvas {
     border-radius: 1.5mm;
-    background-color: rgba(129,123,105, .75);
+    background-color: rgba(117,125,117, .90);
 }
 
 .main {
     display: flex;
     justify-content: center;
     margin: 10px;
+}
+
+#hidden-img {
+    display: none;
+}
+
+#hidden-li {
+    display: none;
 }
 
 aside {
@@ -140,7 +148,7 @@ aside {
 }
 
 aside img {
-    width: 50px;
+    width: 72px;
     mix-blend-mode: multiply;
 }
 
@@ -311,6 +319,8 @@ aside img {
 .legend > ul > li {
     text-decoration: none;
     margin: 10px;
+    background-color: rgba(129,123,105, .85);
+    border-radius: 1.5mm;
 } 
 
 

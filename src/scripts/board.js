@@ -86,6 +86,15 @@ class Board {
             }
         })
     };
+
+    foodMsg(foodItem, itemScore, structure) {
+        let pos = structure.pos
+        let string = `${foodItem}: ${itemScore}`
+        const board = document.querySelector('canvas');
+        const ctx = board.getContext('2d');
+        ctx.font = "26px Yanone Kaffeesatz";
+        ctx.fillText(string, (pos[0] - 25), (pos[1] - 25))
+    }
 }
 
 export default Board;
