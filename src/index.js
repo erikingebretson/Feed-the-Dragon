@@ -25,21 +25,21 @@ window.addEventListener('DOMContentLoaded', () => {
     ul1.appendChild(ulLi1)
     ul1.appendChild(ulLi2)
 
-    let runLevel1 = () => {
+    let button = document.getElementById("popup-button")
+    button.addEventListener('click', runLevel1);
 
+    function runLevel1(event) {
+        event.preventDefault();
+        gameInit.removeAttribute('id', 'popup-on');
+        const level1 = new Game(1, 5, 100, 6, 4);
+        level1.play();
+        button.remove();
+        button.removeEventListener('click', runLevel1);
     }
+
+
+
     
-    for (let i = 0; i < 1; i++) {
-        let button = document.getElementById("popup-button")
-        button.addEventListener('click', (event) => {
-            // console.log(event)
-            event.preventDefault();
-            gameInit.removeAttribute('id', 'popup-on');
-            const level1 = new Game(1, 5, 100, 6, 4);
-            level1.play();
-            button.remove();
-        }, true);
-    }
 
     let level2Button = document.querySelector("#end-level-1");
     level2Button.addEventListener( 'click', (event) => {

@@ -186,7 +186,7 @@ class Game {
     }
 
     clearGame() {
-        document.removeEventListener('keydown', this.action());
+        document.removeEventListener('keydown', this.action);
         const board = document.querySelector('canvas');
         const ctx = board.getContext('2d');
         ctx.clearRect(0, 0, innerWidth, innerHeight);
