@@ -26,9 +26,10 @@ class Game {
     }
 
     startTimer() {
-        let li = document.querySelector('.start')
-        li.classList.remove("start")
-        li.classList.add("timer")
+        
+        let li = document.querySelector('.init-level')
+        li.classList.remove('init-level')
+        li.classList.add('timer-child')
         li.innerHTML = `00:${this.seconds}`;
         this.seconds --;
         this.timerSet = setInterval(() => {
@@ -42,29 +43,27 @@ class Game {
             if (this.seconds > 0) {
                 this.seconds--;
             } else if (this.second <= 0) {
-                // this.gameStatus();
                 clearInterval(this.timerSet)
+                li.remove();
             }
         }, 1000)
-        this.gameStatus();
     }
 
     loadBar() {
         let bar = document.querySelector(".load-bar")
         let num1 = this.totalSeconds - this.seconds 
-        let percent = Math.floor((num1 / this.totalSeconds) * 100) + '%'
-        bar.style.width = percent
-        // bar.innerHTML = percent
+        bar.style.width = Math.floor((num1 / this.totalSeconds) * 100) + '%'
     };
     
     play() {
+        // creates timer box with timer text
         let liNode = document.createElement('li')
         let ulNode = document.querySelector('.timer')
-        ulNode.classList.remove('timer')
-        ulNode.innerHTML = 'Seconds Remaining:'
-        let li = ulNode.appendChild(liNode)
-        li.innerHTML = `Press any key to Start`;
-        li.classList.add("start")
+        let ulPrompt = document.querySelector('.countdown-prompt')
+        ulNode.appendChild(liNode)
+        liNode.classList.add("init-level")
+        liNode.innerHTML = 'Press any key to begin'
+        ulPrompt.innerHTML = 'Remaining Time:'
         
         this.user.place();
         this.action();
@@ -72,6 +71,7 @@ class Game {
 
     action() { // main gameplay logic and flow here
         this.board.placeStructures();
+
         window.addEventListener('keydown', (event) => {
             this.trackScore();
             clearInterval(this.gameSet)
@@ -88,15 +88,10 @@ class Game {
                 this.startTimer();
                 this.timerStart ++
             }
-        })
+        }, true)
     }
 
     directUser() { // call to user, directs user movement
-        // const board = document.querySelector('canvas');
-        // const ctx = board.getContext('2d');
-        // ctx.clearRect(0, 0, innerWidth, innerHeight);
-        // this.board.moveDragons();
-        
         let action = this.event
         this.user.move(action);
         this.collisionCheck();
@@ -105,7 +100,7 @@ class Game {
     }
         
     collisionCheck() {
-        //if time, revisit collision logic for structure siae difference
+        //if time, revisit collision logic for structure size difference
         this.board.structures.forEach( structure => {
             let dist = this.distance(structure.pos, [this.user.x, this.user.y])
             if (dist <= 35) {
@@ -152,66 +147,54 @@ class Game {
         this.trackScore();
         if (this.requiredDragonFood <= this.foundFood ) {
             this.beatLevel();
+            this.clearGame();
             clearInterval(this.timerSet)
+            clearInterval(this.gameSet)
         } else if ( this.seconds <= 0 ) {
             this.lost();
+            clearInterval(this.timerSet)
+            clearInterval(this.gameSet)
         }
     }
 
     beatLevel() {
-        // alert(`you beat level ${this.level}`)
-        clearInterval(this.gameSet)
-        clearInterval(this.timerSet)
-        const board = document.querySelector('canvas');
-        const ctx = board.getContext('2d');
-        ctx.clearRect(0, 0, innerWidth, innerHeight);
-        
-        // this.levelStatus = 'complete'
-        // let button = document.querySelector('.countdown')
-        // let nxtButton = document.createElement('button')
-        // nxtButton.classList.add('nxt-level')
-        // if (this.level === 1) {
-        //     button.innerHTML = `Waiting for you..`
-        //     nxtButton.setAttribute('id','end-level-1')
-        //     nxtButton.innerHTML = "Level 2"
-        // } else if (this.level === 2) {
-        //     button.innerHTML = `Final Round!`
-        //     nxtButton.setAttribute('id','end-level-2')
-        //     nxtButton.innerHTML = "Level 3"
-        // }
+        // let container = document.querySelector(".timer")
+        if (this.levelStatus !== 'complete') {
+            this.levelStatus = 'complete'
+            
+            let li = document.querySelector(".timer-child");
+            li.remove();
 
-        this.levelStatus = 'complete'
-        let container = document.querySelector(".countdown")
-        let button1 = document.getElementById('end-level-1')
-        let button2 = document.querySelector('#end-level-2')
-        if (this.level === 1) {
-            console.log(button1)
-            container.innerHTML = `Waiting for you..`
-            button1.classList.remove('button-off')
-        } else if (this.level === 2) {
-            button = document.querySelector('#end-level-2')
-            button2.classList.remove('class', 'button-off')
+            let button1 = document.querySelector('#end-level-1')
+            let button2 = document.querySelector('#end-level-2')
+            if (this.level === 1) {
+                // container.innerHTML = `Waiting for you..`
+                button1.classList.add('nxt-level')
+                button1.removeAttribute('id','end-level-1')
+                console.log(button1)
+            } else if (this.level === 2) {
+                button2.classList.add('nxt-level')
+                button2.removeAttribute('id', 'end-level-1')
+            }
         }
-        // button.appendChild(nxtButton)
-
-    }
-
-    won() {
-        //inform user they won the game
-        clearInterval(this.gameSet)
-        const board = document.querySelector('canvas');
-        const ctx = board.getContext('2d');
-        ctx.clearRect(0, 0, innerWidth, innerHeight);
-        alert('you beat dis shit')
     }
 
     lost() {
-        // inform user of lost game
-        clearInterval(this.gameSet)
         const board = document.querySelector('canvas');
         const ctx = board.getContext('2d');
         ctx.clearRect(0, 0, innerWidth, innerHeight);
-        // alert('you Lost')
+    }
+
+    clearGame() {
+        document.removeEventListener('keydown', this.action());
+        const board = document.querySelector('canvas');
+        const ctx = board.getContext('2d');
+        ctx.clearRect(0, 0, innerWidth, innerHeight);
+        let timers = document.querySelectorAll(".timer")
+
+        console.log(this.level)
+        let bar = document.querySelector(".load-bar")
+        bar.style.width = '0%'
     }
 
     tips(foodItem, points, sameStructure) {

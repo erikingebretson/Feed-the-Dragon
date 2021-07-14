@@ -25,34 +25,44 @@ window.addEventListener('DOMContentLoaded', () => {
     ul1.appendChild(ulLi1)
     ul1.appendChild(ulLi2)
 
-    // const level2 = new Game(2, 20, 1500, 4, 3)
-    // const level3 = new Game(3, 10, 1000, 2, 4)
-    
-    
-    let button = document.querySelector("#popup-button")
-    button.addEventListener('click', (event) => {
-        // console.log(event)
-        event.preventDefault();
-        gameInit.removeAttribute('id', 'popup-on');
-        const level1 = new Game(1, 5, 100, 6, 4);
-        level1.play();
-        button.remove();
-    });
-    // console.log(level1)
+    let runLevel1 = () => {
 
-    // if (level1.levelStatus === 'complete') {
-    //     console.log(level1)
-    // }
-
-        let level2Button = document.querySelector("#end-level-1");
-        level2Button.classList.remove('button-off');
-        level2Button.addEventListener( 'click', (event) => {
+    }
+    
+    for (let i = 0; i < 1; i++) {
+        let button = document.getElementById("popup-button")
+        button.addEventListener('click', (event) => {
+            // console.log(event)
             event.preventDefault();
-            console.log(level2Button);
-            // gameInit.setAttribute('id', 'popup-on')
-            // let div = document.querySelector('img-button')
-            // let button = document.createElement('button')
-            // button.innerHTML = 'Begin' 
-        })
+            gameInit.removeAttribute('id', 'popup-on');
+            const level1 = new Game(1, 5, 100, 6, 4);
+            level1.play();
+            button.remove();
+        }, true);
+    }
 
+    let level2Button = document.querySelector("#end-level-1");
+    level2Button.addEventListener( 'click', (event) => {
+        event.preventDefault();
+        console.log('level 2!')
+        level2Button.remove();
+        const level2 = new Game(2, 20, 1500, 4, 3)
+        level2.play();
+        
+        // gameInit.setAttribute('id', 'popup-on')
+        // let div = document.querySelector('img-button')
+        // let button = document.createElement('button')
+        // button.innerHTML = 'Begin' 
+    }, true);
+
+    let level3Button = document.querySelector("#end-level-2");
+    level3Button.addEventListener('click', (event) => {
+        event.preventDefault();
+        console.log('level 3!')
+        // const level3 = new Game(3, 10, 1000, 2, 4)  
+        // gameInit.setAttribute('id', 'popup-on')
+        // let div = document.querySelector('img-button')
+        // let button = document.createElement('button')
+        // button.innerHTML = 'Begin' 
+    })
 });

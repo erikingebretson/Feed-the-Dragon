@@ -129,7 +129,6 @@ body {
 }
 
 .img-button > img {
-    /* align-self: flex-start; */
     width: 120px;
     height: auto;
 }
@@ -142,8 +141,6 @@ body {
     margin: 30px 10px 60px 10px;
     font-size: 45px;
     color:	rgba(220,48,35);
-    /* color:	rgba(53,30,28, .9); */
-    /* color:	rgba(255, 255, 255, .9); */
     background-color: rgba(77,100,108);
     border: 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
@@ -164,9 +161,9 @@ body {
     font-size: 22px;
 }
 
-.start-button, .nxt-level {
+.start-button {
     border: none;
-    background-color: transparent;
+    /* background-color: transparent; */
     font-weight: 900;
     height: 40px;
     width: 80%;
@@ -218,6 +215,7 @@ aside {
 .countdown {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-content: center;
     align-items: center; 
     font-size: 28px;
@@ -226,7 +224,34 @@ aside {
     width: 180px;
 }
 
-.start-button, .nxt-level {
+.countdown > ul{
+    margin: 5px 10px;
+}
+
+#end-level-1 {
+    display: none;
+}
+
+#end-level-2 {  
+    display: none;
+}
+
+.nxt-level {
+    border: none;
+    /* background-color: transparent; */
+    font-weight: 900;
+    width: 100%;
+    height: 100%;
+    font-size: 32px;
+    color:	rgba(220,48,35);
+    background-color: rgba(77,100,108);
+    border: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    border-radius: 1.5mm;
+}
+
+.start-button {
+    display: inline;
     border: none;
     background-color: transparent;
     font-weight: 900;
@@ -240,54 +265,41 @@ aside {
     border-radius: 1.5mm;
 }
 
-
 .start-button:hover, .nxt-level:hover, #popup-button:hover {
     transition: 150ms ease-in-out;
     background-color: rgba(77,100,108, .2);
 }
 
-#end-level-1 {
-    display: none;
-}
-
-#end-level-2 {  
-    display: none;
-}
-
-.button-off {
-    display: none;
-}
-
-.start {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-items: center; 
-    list-style: none; 
-    height: 60px;
-    width: 80%;
-    padding: 10px;
-    font-size: 32px;
-    font-weight: 900;
-    color: 	rgba(220,48,35);
-    background-color: rgba(77,100,108, .7);
-    border-radius: 1.5mm;
-}
-
 .timer {
     display: flex;
-    flex-direction: column;
-    align-content: center;
-    align-items: center; 
+    justify-content: center;
+    align-items: center;
+    align-self: center;
     list-style: none; 
     height: 40px;
     width: 80%;
     padding: 10px;
     font-size: 48px;
     font-weight: 900;
+    border-radius: 1.5mm;
+}
+
+.timer > li {
+    align-self: center;
+    list-style: none; 
+    height: 50px;
+    width: 100%;
+    padding: 10px;
+    font-size: 48px;
+    font-weight: 900;
     color: rgba(220,48,35);
     background-color: rgba(77,100,108, .7);
     border-radius: 1.5mm;
+}
+
+.timer > .init-level {
+    font-size: 28px;
+    color:	rgba(220,48,35);
 }
 
 .patience {
@@ -311,8 +323,6 @@ aside {
     align-items: center;
     height: 40px;
     width: 90%;
-    /* padding: 10px; */
-    
     font-size: 48px;
     font-weight: 900;
     color: 	rgba(167, 82, 76);
