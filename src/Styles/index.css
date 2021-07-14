@@ -98,7 +98,57 @@ aside img {
     width: 180px;
 }
 
+.start-button {
+    border: none;
+    background-color: transparent;
+    font-weight: 900;
+    height: 40px;
+    width: 80%;
+    font-size: 22px;
+    color: 	rgba(220,48,35);
+    background-color: rgba(77,100,108);
+    border-radius: 1.5mm;
+}
+
+.nxt-level {
+    border: none;
+    background-color: transparent;
+    font-weight: 900;
+    height: 40px;
+    width: 80%;
+    font-size: 22px;
+    color: 	rgba(220,48,35);
+    background-color: rgba(77,100,108);
+    border-radius: 1.5mm;
+}
+
+.start-button:hover, .nxt-level:hover {
+    transition: 250ms ease-in-out;
+    background-color: rgba(77,100,108, .2);
+}
+
+.start {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center; 
+    list-style: none; 
+    height: 60px;
+    width: 80%;
+    padding: 10px;
+    font-size: 32px;
+    font-weight: 900;
+    color: 	rgba(220,48,35);
+    background-color: rgba(77,100,108, .9);
+    border-radius: 1.5mm;
+}
+
 .timer {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center; 
+    list-style: none; 
     height: 40px;
     width: 80%;
     padding: 10px;
@@ -184,7 +234,6 @@ aside img {
     border-radius: 1.5mm;
 
 }
-
 
 .legend > ul > li {
     text-decoration: none;
