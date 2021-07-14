@@ -51,7 +51,7 @@ class Board {
     }
 
     userCheck(pos) {
-        console.log('hi')
+        // console.log('hi')
         let num1 = 300 - pos[0]
         let num2 = 300 - pos[1]
         if (num1 > -100 && num1 < 100) {

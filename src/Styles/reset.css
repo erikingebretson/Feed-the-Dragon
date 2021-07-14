@@ -24,7 +24,7 @@ time, mark, audio, video {
 	color: inherit;
 	text-decoration: inherit;
 	vertical-align: baseline;
-    font-family: Yanone Kaffeesatz;
+    /* font-family: Yanone Kaffeesatz; */
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
