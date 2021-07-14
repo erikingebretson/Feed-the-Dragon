@@ -8,7 +8,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const ctx = board.getContext('2d');
     ctx.font = "48px Yanone Kaffeesatz";
     ctx.fillStyle = "#351E1C";
-    ctx.fillText("Feed the Dragon", 175, 50)
+    ctx.fillText("Feed the Dragon", 170, 50)
     ctx.font = "26px Yanone Kaffeesatz";
     ctx.fillText("A dragon has visited your village! Luckily the dragon is fairly ", 50, 120)
     ctx.fillText("kind, but we don't want to see it get hungry..", 50, 150)

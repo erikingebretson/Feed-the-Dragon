@@ -1,15 +1,20 @@
 import { _ } from "core-js";
 import Structure from "./structure";
 import User from "./user";
+import Dragon from "./dragon";
 
 class Board {
-    constructor(numHouses, numMarkets) {
+    constructor(numHouses, numMarkets, user) {
         this.numHouses = numHouses; 
         this.numMarkets = numMarkets;
+        this.user = user;
         this.structures = [];
+        this.dragons = []
+        this.dragonsSet = ''
         this.makeHouses();
         this.makeMarkets();
         this.placeStructures();
+        // this.generateDragon();
     }
     
     generatePos() {
@@ -95,6 +100,32 @@ class Board {
         ctx.font = "26px Yanone Kaffeesatz";
         ctx.fillText(string, (pos[0] - 25), (pos[1] - 25))
     }
+
+    // generateDragon() {
+    //     let dragon = ''
+    //     let axis = ''
+    //     let x = ''
+    //     let y = ''
+    //     this.dragonsSet = setInterval(() => {
+    //         axis = Math.floor(Math.random() * 2)
+    //         if (axis === 0 ) {
+    //             x = 0;
+    //             y = Math.floor((Math.random() * 600));
+    //         } else {
+    //             x = Math.floor((Math.random() * 600));
+    //             y = 0;
+    //         }
+    //         dragon = new Dragon(x,y, [this.user.x, this.user.y])
+    //         this.dragons.push(dragon)
+    //         dragon.move();
+    //     }, 2000)
+    // }
+
+    // moveDragons() {
+    //     this.dragons.forEach( dragon => {
+    //         dragon.move();
+    //     })
+    // }
 }
 
 export default Board;

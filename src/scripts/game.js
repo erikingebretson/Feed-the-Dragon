@@ -11,8 +11,8 @@ class Game {
         this.timerSet = ''
         this.timeStart = 0;
         this.requiredDragonFood = requiredDragonFood;
-        this.board = new Board(numHouses, numMarkets);
-        this.user = new User(300, 300);
+        this.user = new User(300, 300, 2);
+        this.board = new Board(numHouses, numMarkets, this.user);
         this.event = ''
         this.gameSet = ''
         this.lastVisited = ''
@@ -74,7 +74,6 @@ class Game {
             this.trackScore();
             clearInterval(this.gameSet)
             this.event = event
-            
             const board = document.querySelector('canvas');
             const ctx = board.getContext('2d');
             ctx.clearRect(0, 0, innerWidth, innerHeight);
@@ -91,7 +90,12 @@ class Game {
     }
 
     directUser() { // call to user, directs user movement
+        // const board = document.querySelector('canvas');
+        // const ctx = board.getContext('2d');
+        // ctx.clearRect(0, 0, innerWidth, innerHeight);
+        
         let action = this.event
+        // this.board.moveDragons();
         this.user.move(action);
         this.collisionCheck();
         this.board.placeStructures();
