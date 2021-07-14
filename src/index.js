@@ -4,19 +4,19 @@ import Game from './scripts/game';
 import Structure from './scripts/structure';
 window.addEventListener('DOMContentLoaded', () => {
     
-    const board = document.querySelector('canvas');
-    const ctx = board.getContext('2d');
-    ctx.font = "48px Yanone Kaffeesatz";
-    ctx.strokeStyle = "#351E1C";
-    ctx.fillText("Feed the Dragon", 175, 50)
+    // const board = document.querySelector('canvas');
+    // const ctx = board.getContext('2d');
+    // ctx.font = "48px Yanone Kaffeesatz";
+    // ctx.strokeStyle = "#351E1C";
+    // ctx.fillText("Feed the Dragon", 175, 50)
 
-    ctx.font = "32px Yanone Kaffeesatz";
-    ctx.fillText("test", 175, 150)
-    
-    window.addEventListener('keyup', () => {
+    // ctx.font = "32px Yanone Kaffeesatz";
+    // ctx.fillText("test", 175, 150)
         const level1 = new Game(1, 15, 800, 6, 4)
         level1.play();  
-    });
+    
+    // window.addEventListener('keyup', () => {
+    // });
 
     //testing    
     // console.log(level1.board.structures)
