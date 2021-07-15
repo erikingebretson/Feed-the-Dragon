@@ -55,11 +55,13 @@ table {
 /*!****************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/index.css ***!
   \****************************************************************************************************/
-body {
+body {    
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background: rgba(128,128,0, .1);
+    /* box-shadow: inset 0 0 15px black; */
 }
 .top-nav {
     align-self: center;
