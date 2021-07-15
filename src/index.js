@@ -14,7 +14,7 @@ window.addEventListener('DOMContentLoaded', () => {
     let ul1 = document.createElement('ul')
     let ulLi1 = document.createElement('li')
     let ulLi2 = document.createElement('li')
-    li1.innerHTML = "A dragon has visited your village! Luckily the dragon is fairly kind, but we don't want to see it get hungry.."
+    li1.innerHTML = "A dragon has visited your village! Luckily the dragon is fairly kind, but we don't want to see it get hungry..."
     li2.innerHTML = "If the dragon’s patience runs out your village will be lost. It will be up to you to gather the village’s food and make sure the dragon is fed before time runs out."
     ul1.innerHTML = "Controls"
     ul1.classList.add("controls")

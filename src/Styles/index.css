@@ -1,10 +1,3 @@
-/* body {
-    background: rgba(255, 255, 255, .2);
-    background-image: url('/lib/assets/bg-art.jpg');
-    background-position: center;
-    background-size: cover;
-} */
-
 body {
     display: flex;
     flex-direction: column;
@@ -76,8 +69,8 @@ body {
     align-items: center;
     align-content: center;
     position: fixed;
-    height: 100%;
-    width: 100%;
+    height: 1000vw;
+    width: 1000vh;
     border-radius: 1.5mm;
     background-color: rgba(0,0,0, .75);
     /* selectors to hide popup below  */
@@ -99,7 +92,6 @@ body {
     align-content: center;
     text-align: center;
     background-color: rgba(255, 255, 255, 0.8);
-    /* background-color: rgba(198,194,182, .95); */
     width: 550px;
     max-width: 100%; 
     /* play with toggling max-width on and off */
@@ -462,6 +454,21 @@ aside {
 
 footer {
     display: flex;
-    justify-content: flex-start;
-    margin: 20px;
+    justify-content: space-evenly;
+    background-color: rgba(77,100,108, .7);
+    width: 112vh;
+    padding: 10px 10px;
+    border: 0;
+    border-radius: 1.5mm;
+    color: 	rgba(53,30,28);
+}
+
+footer div {
+    display: flex;
+    align-items: baseline;
+}
+
+footer img {
+    height: 25px;
+    padding: 0px 10px;
 }
