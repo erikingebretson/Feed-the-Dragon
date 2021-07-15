@@ -55,31 +55,39 @@ table {
 /*!****************************************************************************************************!*\
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/index.css ***!
   \****************************************************************************************************/
-body {
-    background-image: url('./lib/assets/bg-art.jpg');
+/* body {
+    background: rgba(255, 255, 255, .2);
+    background-image: url('/lib/assets/bg-art.jpg');
     background-position: center;
     background-size: cover;
-}
+} */
 
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .top-nav {
+    align-self: center;
+    align-content: center;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     margin-right: 10px;
     margin-left: 10px;
+    width: 1010px;
     height: auto;
+    background-color: rgba(77,100,108, .7);
     border-radius: 1.5mm;
+    color: rgba(53,30,28);
 }
 
 .dragon-box > img {
     height: 70px;
     width: auto;
     margin: 20px 20px;
-    /* mix-blend-mode: multiply; */
-    /* z-index: 7; */
-    /* height: fit-content;
-    width: fit-content; */
 }
 
 .title {
@@ -143,7 +151,8 @@ body {
     align-items: center;
     align-content: center;
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.95);
+    background-color: rgba(255, 255, 255, 0.8);
+    /* background-color: rgba(198,194,182, .95); */
     width: 550px;
     max-width: 100%; 
     /* play with toggling max-width on and off */
@@ -162,6 +171,8 @@ body {
     margin: 15px 5px 0px 5px;
     background-color: rgba(77,100,108, .7);
     border-radius: 1.5mm;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    border-radius: 1.5mm;
 }
 .popup > h3 > img {
     width: 55px;
@@ -172,6 +183,7 @@ body {
     font-size: 28px;
     font-weight: 300;
     margin: 15px 10px 15px 10px;
+    
 }
 
 .popup li {
@@ -200,7 +212,7 @@ body {
     color:	rgba(220,48,35);
     background-color: rgba(77,100,108);
     border: 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .5);
     border-radius: 1.5mm;
 }
 
@@ -208,7 +220,8 @@ body {
     background-color: rgba(117,125,117, .45);
     font-size: 34px;
     font-weight: 900;
-    border-radius: 1.5mm;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    border-radius: 1.5mm;    
     margin: 20px 35px;
     padding: 5px;
 }

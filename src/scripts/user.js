@@ -13,7 +13,7 @@ class User {
         const ctx = board.getContext('2d');
         ctx.clearRect(0, 0, innerWidth, innerHeight);
         let user = document.getElementById("hidden-img")
-        ctx.drawImage(user, this.x, this.y, 75, 40);
+        ctx.drawImage(user, this.x, this.y, 55, 40);
     }      
 
     move(event) {

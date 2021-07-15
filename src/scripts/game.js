@@ -125,8 +125,11 @@ class Game {
     }
 
     incrementScore(structure) {
+        let message = ''
         if (structure.pos === this.lastVisited.pos ) {
-            this.tips( structure, structure, structure)
+            this.tips(structure, structure, structure)
+            message = 'Come back soon!'
+            this.board.foodMsg(message, structure, structure)
         } else {
             let foodItem = structure.foodItems.shift();
             let itemScore= structure.foodItems.shift();
@@ -136,6 +139,8 @@ class Game {
                 this.foundFood += itemScore;
                 this.tips(foodItem, itemScore);
             } else {
+                message = "Nothing here :("
+                this.board.foodMsg(message, structure, structure)
                 foodItem = 'No food left here &#128531'
                 this.tips(foodItem)
             }

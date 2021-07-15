@@ -93,8 +93,13 @@ class Board {
     };
 
     foodMsg(foodItem, itemScore, structure) {
-        let pos = structure.pos
         let string = `${foodItem}: ${itemScore}`
+        if (foodItem === 'Come back soon!') {
+            string = 'Come back soon!'
+        } else if (foodItem === "Nothing here :(") {
+            string = "Nothing here :("
+        }
+        let pos = structure.pos
         const board = document.querySelector('canvas');
         const ctx = board.getContext('2d');
         ctx.fillStyle ="#351E1C"

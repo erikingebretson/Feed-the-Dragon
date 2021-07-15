@@ -3,7 +3,7 @@ class Structure {
     constructor(type, pos) {
         this.pos = pos;
         this.type = type;
-        this.food = { 'Rice': 100, 'Fish': 200, 'Pork': 300 };
+        this.food = { 'Rice': 100, 'Fish': 200, 'Beef': 300 };
         this.foodItems = this.getFood(type, this.food);
         this.feedDragon.bind(this);
     }
