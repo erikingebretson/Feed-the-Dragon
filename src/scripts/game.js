@@ -30,18 +30,20 @@ class Game {
         li.classList.remove('init-level')
         li.classList.add('timer-child')
         li.innerHTML = `00:${this.seconds}`;
-        this.seconds --;
+        if (this.seconds === this.totalSeconds) this.seconds --;
         this.timerSet = setInterval(() => {
-            if (this.seconds > 9 ) {
+            if ( this.second < 0) {
+                li.innerHTML = `00:00`
+            } else if (this.seconds > 9) {
                 li.innerHTML = `00:${this.seconds}`
             } else {
                 li.innerHTML = `00:0${this.seconds}`
             }
             this.loadBar();
             this.tips();
-            if (this.seconds > 0) {
+            if (this.seconds > -1) {
                 this.seconds--;
-            } else if (this.second <= 0) {
+            } else if (this.second <= -1) {
                 clearInterval(this.timerSet)
                 li.remove();
             }
@@ -55,7 +57,6 @@ class Game {
     };
     
     play() {
-        // creates timer box with timer text
         let liNode = document.createElement('li')
         let ulNode = document.querySelector('.timer')
         let ulPrompt = document.querySelector('.countdown-prompt')
@@ -149,7 +150,7 @@ class Game {
             this.clearGame();
             clearInterval(this.timerSet)
             clearInterval(this.gameSet)
-        } else if ( this.seconds <= 0 ) {
+        } else if ( this.seconds <= -1 ) {
             this.lost();
             clearInterval(this.timerSet)
             clearInterval(this.gameSet)
@@ -187,9 +188,6 @@ class Game {
         const board = document.querySelector('canvas');
         const ctx = board.getContext('2d');
         ctx.clearRect(0, 0, innerWidth, innerHeight);
-        let timers = document.querySelectorAll(".timer")
-        // console.log(this.level)
-        let bar = document.querySelector(".load-bar")
     }
 
     tips(foodItem, points, sameStructure) {

@@ -56,7 +56,7 @@ table {
   !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[1].use[1]!./src/styles/index.css ***!
   \****************************************************************************************************/
 body {
-    background-image: url('/lib/assets/bg-art.jpg');
+    background-image: url('./lib/assets/bg-art.jpg');
     background-position: center;
     background-size: cover;
 }
