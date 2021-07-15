@@ -50,6 +50,7 @@ window.addEventListener('DOMContentLoaded', () => {
     level2Button.addEventListener('click', runLevel2);
 
     function runLevel2(event) {
+        level1.resetScoreCard();
         event.preventDefault();
         event.stopPropagation();
         gameInit.removeAttribute('id', 'popup-on');
@@ -64,6 +65,7 @@ window.addEventListener('DOMContentLoaded', () => {
     level3Button.addEventListener('click', runLevel3)
     
     function runLevel3(event) {
+        level2.resetScoreCard();
         event.preventDefault();
         event.stopPropagation();
         gameInit.removeAttribute('id', 'popup-on');

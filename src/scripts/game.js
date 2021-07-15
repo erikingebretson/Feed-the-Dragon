@@ -57,6 +57,11 @@ class Game {
         let num1 = this.totalSeconds - this.seconds 
         bar.style.width = Math.floor((num1 / this.totalSeconds) * 100) + '%'
     };
+
+    resetLoadBar () {
+        let bar = document.querySelector(".load-bar")
+        bar.style.width = '1%'
+    }
     
     play() {
         let liNode = document.createElement('li')
@@ -146,6 +151,11 @@ class Game {
         scoreBoard.innerHTML = `${this.foundFood} / ${this.requiredDragonFood}`;
     }
 
+    resetScore() {
+        let scoreBoard = document.querySelector('.food');
+        scoreBoard.innerHTML = `00/00`;
+    }
+
     incrementScore(structure) {
         let message = ''
         if (structure.pos === this.lastVisited.pos ) {
@@ -174,19 +184,16 @@ class Game {
         //removes keystroke event listener - need to make this work..
         let that = this;
         document.removeEventListener('keydown', that.action.bind(that));
-
+        
         const board = document.querySelector('canvas');
         const ctx = board.getContext('2d');
         ctx.clearRect(0, 0, innerWidth, innerHeight);
     }
 
-    // destroy() { // destroy has not worked...
-    //     delete this.level;
-    //     delete this.foundFood;
-    //     this = undefined;
-    //     console.log(delete this);
-    //     delete this;
-    // }
+    resetScoreCard() { // destroy has not worked...
+        this.resetScore();
+        this.resetLoadBar();
+    }
     
     gameStatus() {
         this.trackScore();

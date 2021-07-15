@@ -222,7 +222,7 @@ body {
     border: none;
     background-color: transparent;
     font-weight: 900;
-    padding: 5px 15px;
+    padding: 10px 20px 10px 20px;
     margin: 30px 10px 60px 10px;
     font-size: 45px;
     color:	rgba(220,48,35);
@@ -344,16 +344,8 @@ aside {
 }
 
 .nxt-level {
-    /* background-color: transparent; */
-    justify-content: center;
-    align-self: center;
-    text-align: center;
-    /* margin: 30px 20px 30px 20px; */
-    vertical-align: middle;
     font-weight: 900;
-    width: 100%;
-    height: 100%;
-    padding: 10px 20px 10px 20px;
+    padding: 10px 30px 10px 30px;
     font-size: 38px;
     color:	rgba(220,48,35);
     animation: pulse 2s infinite;
@@ -369,17 +361,20 @@ aside {
         transform: scale(1);
         /* background-color: rgba(117,125,117, .45); */
         background-color: rgba(77,100,108, .75);
+        vertical-align: middle;
     }
     
     50% {
         transform: scale(1.1);
         background-color: rgba(77,100,108);
         box-shadow: 0, 0, 0, 20px rgba(77,100,108);
+        vertical-align: middle;
     }
     
     100% {
         transform: scale(1);
         background-color: rgba(77,100,108, .75);
+        vertical-align: middle;
     }
 }
 
@@ -413,10 +408,16 @@ aside {
     transform: scale(.95);
 }
 
+.timer > button {
+    vertical-align: middle;
+    align-self: center;
+    margin: auto;
+}
+
 .timer {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: baseline;
     align-self: center;
     list-style: none; 
     height: 40px;
