@@ -58,6 +58,10 @@ body {
     color: rgba(53,30,28);
 }
 
+.connects > li > img {
+    height: 35px;
+}
+
 .connects > li:hover {
     background-color: rgba(117,125,117, .75);
     border-radius: 1.5mm;
@@ -274,7 +278,8 @@ aside {
     border-radius: 1.5mm;
 }
 
-.start-button {
+.start-button #end-level-1  #end-level-2 {
+    font-family: Yanone Kaffeesatz;
     display: inline;
     border: none;
     background-color: transparent;
