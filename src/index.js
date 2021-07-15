@@ -27,7 +27,7 @@ window.addEventListener('DOMContentLoaded', () => {
         ul1.appendChild(ulLi2)
 
     
-    let level1 = new Game(1, 20, 700, 6, 4);
+    let level1 = new Game(1, 15, 600, 6, 4);
     let startButton = document.getElementById("popup-button")
     startButton.addEventListener('click', runLevel1);
     

@@ -214,13 +214,15 @@ class Game {
             li.remove();
 
             let ulPrompt = document.querySelector('.countdown-prompt')
-            ulPrompt.innerHTML = "Keep going!"
+            
             let button1 = document.querySelector('#end-level-1')
             let button2 = document.querySelector('#end-level-2')
             if (this.level === 1) {
+                ulPrompt.innerHTML = "Keep going!"
                 button1.classList.add('nxt-level')
                 button1.removeAttribute('id','end-level-1')
             } else if (this.level === 2) {
+                ulPrompt.innerHTML = "Final round..."
                 button2.classList.add('nxt-level')
                 button2.removeAttribute('id', 'end-level-2')
             } else if (this.level === 3) {
@@ -232,21 +234,21 @@ class Game {
     won() {
         while (this.levelOverMessage < 1) {
             let popUp = document.querySelector(".popup-container")
-            popUp.setAttribute('id', 'popup-on')
+                popUp.setAttribute('id', 'popup-on')
             let popupTitle = document.querySelector(".popup-title")
-            popupTitle.innerHTML = "You Won!"
+                popupTitle.innerHTML = "You Won!"
             let li1 = document.createElement('li')
-            li1.innerHTML = "Thanks for playing my game!<br><br>This was a fun excercise in Javascript DOM manipulation, CSS, and Canvas. I hope you enjoyed the experience and just maybe had fun along the way!"
+                li1.innerHTML = "Thanks for playing Feed the Dragon, game inspired by a beloved pup!<br><br>This was a fun excercise in Javascript DOM manipulation, CSS, and Canvas. I hope you enjoyed the experience and just maybe had fun along the way!"
             let li2 = document.createElement('li')
-            li2.innerHTML = "If you haven't already, check out my GitHub, LinkedIn, or send me an email."
+                li2.innerHTML = "If you haven't already, check out my GitHub, LinkedIn, or send me an email."
             let popupMessage = document.querySelector(".popup-message")
-            popupMessage.appendChild(li1)
-            popupMessage.appendChild(li2)
-            let button = document.querySelector("#reload-button")
-            button.style.display = 'inline'
-            button.innerHTML = "Restart Game"
-            let img = document.querySelector("#popup-character")
-            img.src = 'lib/assets/char-head-icon.png'
+                popupMessage.appendChild(li1)
+                popupMessage.appendChild(li2)
+            
+            let images = document.querySelector(".popup-connects")
+            images.style.display = 'block'
+            // images.classList.remove("popup-connects")
+        
             this.levelOverMessage++;
         }
     }
