@@ -119,20 +119,9 @@ body {
     margin-bottom: 5px;
 }
 
-.connects > li > img {
-    height: 35px;
-    
+.connects > li > a > img {
+    height: 35px; 
 }
-
-/* .connects > li:nth-child(3) > img {
-    height: 45px;
-    width: 45px;
-}
-
-.connects > li:nth-child(3) {
-    padding: 0px 5px 5px 5px;
-    margin: 5px 5px 0px 5px;
-} */
 
 .connects > li:hover {
     background-color: rgba(117,125,117, .75);

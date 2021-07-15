@@ -65,7 +65,7 @@ class Game {
         this.board.placeStructures();
         // this.action();
         let that = this;
-        document.addEventListener('keydown', that.action.bind(that), true)
+        document.addEventListener('keydown', that.action.bind(that))
     }
     
     action(event) { // main gameplay logic and flow here
@@ -103,7 +103,6 @@ class Game {
     }
         
     collisionCheck() {
-        //if time, revisit collision logic for structure size difference
         this.board.structures.forEach( structure => {
             let dist = this.distance(structure.pos, [this.user.x, this.user.y])
             if (dist <= 35) {
@@ -154,9 +153,9 @@ class Game {
     }
 
     clearGame() {
-        //removes keystroke event listener
+        //removes keystroke event listener - need to make this work..
         let that = this;
-        console.log(document.removeEventListener('keydown', that.action.bind(that), true));
+        document.removeEventListener('keydown', that.action.bind(that));
 
         const board = document.querySelector('canvas');
         const ctx = board.getContext('2d');
@@ -177,7 +176,8 @@ class Game {
             clearInterval(this.gameSet)
         } else if ( this.seconds <= -1 ) {
             this.lost();
-
+            this.clearGame();
+            
             clearInterval(this.timerSet)
             clearInterval(this.gameSet)
         }
