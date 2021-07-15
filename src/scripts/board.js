@@ -99,13 +99,18 @@ class Board {
         } else if (foodItem === "Nothing here :(") {
             string = "Nothing here :("
         }
+
         let pos = structure.pos
         const board = document.querySelector('canvas');
         const ctx = board.getContext('2d');
         ctx.fillStyle ="#351E1C"
         ctx.font = "32px Yanone Kaffeesatz";
-        // fix where text draws
-        ctx.fillText(string, (pos[0] - 15), (pos[1] - 18))
+    
+        if ( this.user.y < 75 ) {
+            ctx.fillText(string, (pos[0]), (pos[1] + 68))
+        } else {
+            ctx.fillText(string, (pos[0] - 15), (pos[1] - 18))
+        }
     }
 
     // generateDragon() {

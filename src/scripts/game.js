@@ -12,7 +12,7 @@ class Game {
         this.timerSet = ''
         this.timerStart = 0;
         this.requiredDragonFood = requiredDragonFood;
-        this.user = new User(300, 300, 2);
+        this.user = new User(300, 300, 1);
         this.board = new Board(numHouses, numMarkets, this.user);
         this.event = ''
         this.gameSet = ''
@@ -80,7 +80,7 @@ class Game {
         const ctx = board.getContext('2d');
         ctx.clearRect(0, 0, innerWidth, innerHeight);
         
-        this.gameSet = setInterval( () => this.directUser(), 15);
+        this.gameSet = setInterval( () => this.directUser(), 7);
         this.user.place();
         this.gameStatus();
 
