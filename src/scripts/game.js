@@ -64,11 +64,16 @@ class Game {
         let ulPrompt = document.querySelector('.countdown-prompt')
             ulNode.appendChild(liNode)
             liNode.classList.add("init-level")
-            liNode.innerHTML = 'Press any key to begin'
+            // liNode.innerHTML = 'Press any key to begin'
             ulPrompt.innerHTML = 'Remaining Time:'
         
         this.user.place();
         this.board.placeStructures();
+        const board = document.querySelector('canvas');
+        const ctx = board.getContext('2d');
+        ctx.fillStyle = "#351E1C"
+        ctx.font = "32px Yanone Kaffeesatz";
+        ctx.fillText("Press any key to start.", 190, 30)
         // this.action();
         let that = this;
         if (this.levelStatus === 'incomplete') {
@@ -207,7 +212,9 @@ class Game {
             
             let li = document.querySelector(".timer-child");
             li.remove();
-            
+
+            let ulPrompt = document.querySelector('.countdown-prompt')
+            ulPrompt.innerHTML = "Keep going!"
             let button1 = document.querySelector('#end-level-1')
             let button2 = document.querySelector('#end-level-2')
             if (this.level === 1) {

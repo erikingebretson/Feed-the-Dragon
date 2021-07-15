@@ -46,7 +46,10 @@ class Board {
 
             for (let e = 0; e < this.structures.length; e++) {
                 temp = this.structures[e].pos
-                if (this.distance(temp, pos) < 100 || this.userCheck(pos)) {
+                if (this.distance(temp, pos) < 100 ) {
+                    pos = this.generatePos();
+                    e = 0;
+                } else if (this.userBoxCheck(pos)) {
                     pos = this.generatePos();
                     e = 0;
                 }
@@ -55,15 +58,19 @@ class Board {
         }
     }
 
-    userCheck(pos) {
-        // console.log('hi')
+    userBoxCheck(pos) {
+        // console.log('user', [this.user.x, this.user.y])
+        // console.log(pos)
         let num1 = 300 - pos[0]
         let num2 = 300 - pos[1]
-        if (num1 > -100 && num1 < 100) {
+        // console.log(num1)
+        // console.log(num2)
+        if ((num1 > -100 && num1 < 100) && (num2 > -100 && num2 < 100)) {
             return true;
-        } else if (num2 > -100 && num2 < 100) {
-            return true;
-        }
+        } 
+        // else if (num2 > -100 && num2 < 100) {
+        //     return true;
+        // }
         return false;
     }
 

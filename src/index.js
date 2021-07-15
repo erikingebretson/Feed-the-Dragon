@@ -27,7 +27,7 @@ window.addEventListener('DOMContentLoaded', () => {
         ul1.appendChild(ulLi2)
 
     
-    let level1 = new Game(1, 5, 100, 6, 4);
+    let level1 = new Game(1, 20, 700, 6, 4);
     let startButton = document.getElementById("popup-button")
     startButton.addEventListener('click', runLevel1);
     
@@ -45,7 +45,7 @@ window.addEventListener('DOMContentLoaded', () => {
         ulLi2.remove();
     };
 
-    const level2 = new Game(2, 5, 100, 4, 3)
+    const level2 = new Game(2, 20, 1500, 4, 3)
     let level2Button = document.querySelector("#end-level-1");
     level2Button.addEventListener('click', runLevel2);
 
@@ -59,7 +59,7 @@ window.addEventListener('DOMContentLoaded', () => {
     };
     
     
-    const level3 = new Game(3, 5, 100, 2, 4) 
+    const level3 = new Game(3, 10, 1000, 2, 4) 
     let level3Button = document.querySelector("#end-level-2");
     level3Button.addEventListener('click', runLevel3)
     
