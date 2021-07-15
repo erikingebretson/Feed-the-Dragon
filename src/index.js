@@ -27,7 +27,7 @@ window.addEventListener('DOMContentLoaded', () => {
     ul1.appendChild(ulLi2)
 
     
-    let level1 = new Game(1, 15, 500, 6, 4);
+    let level1 = new Game(1, 5, 500, 6, 4);
     let button = document.getElementById("popup-button")
     button.addEventListener('click', runLevel1);
     
@@ -35,8 +35,13 @@ window.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
         gameInit.removeAttribute('id', 'popup-on');
         level1.play();
-        button.remove();
+        button.style.display = 'none'
         button.removeEventListener('click', runLevel1);
+        li1.remove();
+        li2.remove();
+        ul1.remove();
+        ulLi1.remove();
+        ulLi2.remove();
     };
 
     // gameInit.setAttribute('id', 'popup-on')
@@ -69,4 +74,8 @@ window.addEventListener('DOMContentLoaded', () => {
         level3Button.remove();
         button.removeEventListener('click', runLevel3);
     };
+
+    
+    let reloadButton = document.getElementById('reload-button')
+    reloadButton.addEventListener('click', window.location.reload.bind(window.location));
 });

@@ -186,6 +186,24 @@ class Game {
         const board = document.querySelector('canvas');
         const ctx = board.getContext('2d');
         ctx.clearRect(0, 0, innerWidth, innerHeight);
+
+        //toggle popup on
+        let popUp = document.querySelector(".popup-container")
+        popUp.setAttribute('id', 'popup-on')
+        let popupTitle = document.querySelector(".popup-title")
+        popupTitle.innerHTML = "GAME OVER"
+        let li1 = document.createElement('li')
+        li1.innerHTML = "You weren't able to feed the hungry dragon today, but there's always tomorrow. Try again and here's a hint:"
+        let li2 = document.createElement('li')
+        li2.innerHTML = "Market's generally have more resources than a home. Try visiting them more next time!"
+        let popupMessage = document.querySelector(".popup-message")
+        popupMessage.appendChild(li1)
+        popupMessage.appendChild(li2)
+        let button = document.querySelector("#reload-button")
+        button.style.display = 'inline'
+        button.innerHTML = "Restart Game"
+        let img = document.querySelector("#popup-character")
+        img.src = 'lib/assets/char-head-icon.png'
     }
 
     clearGame() {
