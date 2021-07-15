@@ -5,6 +5,7 @@ class User {
         this.x = x;
         this.y = y;
         this.velocity = velocity;
+        this.lastPos = [];
         this.place();
     }
     
@@ -17,6 +18,9 @@ class User {
     }      
 
     move(event) {
+        let pos = [this.x, this.y]
+        this.lastPos = pos
+
         if (event.key === 'ArrowUp' && (this.y - this.velocity) > 0) {
             this.moveUp();
         } else if (event.key === 'ArrowDown' && (this.y + this.velocity) < 560) {

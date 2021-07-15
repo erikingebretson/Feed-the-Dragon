@@ -17,19 +17,15 @@ class Game {
         this.event = ''
         this.gameSet = ''
         this.lastVisited = ''
+        this.keyEvent = ''
         this.trackScore();
-    }
-
-    promptGame() {
-        //throw popup with game instructions
-        
     }
 
     startTimer() {
         let li = document.querySelector('.init-level')
-        li.classList.remove('init-level')
-        li.classList.add('timer-child')
-        li.innerHTML = `00:${this.seconds}`;
+            li.classList.remove('init-level')
+            li.classList.add('timer-child')
+            li.innerHTML = `00:${this.seconds}`;
         if (this.seconds === this.totalSeconds) this.seconds --;
         this.timerSet = setInterval(() => {
             if ( this.second < 0) {
@@ -60,19 +56,26 @@ class Game {
         let liNode = document.createElement('li')
         let ulNode = document.querySelector('.timer')
         let ulPrompt = document.querySelector('.countdown-prompt')
-        ulNode.appendChild(liNode)
-        liNode.classList.add("init-level")
-        liNode.innerHTML = 'Press any key to begin'
-        ulPrompt.innerHTML = 'Remaining Time:'
+            ulNode.appendChild(liNode)
+            liNode.classList.add("init-level")
+            liNode.innerHTML = 'Press any key to begin'
+            ulPrompt.innerHTML = 'Remaining Time:'
         
         this.user.place();
-        this.action();
+        this.board.placeStructures();
+        // this.action();
+        let that = this;
+        document.addEventListener('keydown', that.action.bind(that), true)
     }
     
-    action() { // main gameplay logic and flow here
+    action(event) { // main gameplay logic and flow here
         this.board.placeStructures();
+        event.preventDefault();
+        event.stopPropagation();
+        // document.addEventListener('keydown', (event) => {
+        console.log(this.level)
+        console.log(this.foundFood)
         
-        document.addEventListener('keydown', (event) => {
         this.trackScore();
         clearInterval(this.gameSet)
         this.event = event
@@ -88,7 +91,7 @@ class Game {
             this.startTimer();
             this.timerStart ++
         }
-        });
+        // });
     }
 
     directUser() { // call to user, directs user movement
@@ -105,6 +108,8 @@ class Game {
             let dist = this.distance(structure.pos, [this.user.x, this.user.y])
             if (dist <= 35) {
                 clearInterval(this.gameSet)
+                this.user.x = this.user.lastPos[0]
+                this.user.y = this.user.lastPos[1]
                 this.incrementScore(structure);
             }
         })
@@ -148,15 +153,31 @@ class Game {
         }
     }
 
+    clearGame() {
+        //removes keystroke event listener
+        let that = this;
+        console.log(document.removeEventListener('keydown', that.action.bind(that), true));
+
+        const board = document.querySelector('canvas');
+        const ctx = board.getContext('2d');
+        ctx.clearRect(0, 0, innerWidth, innerHeight);
+    }
+
+    destroy() {
+        console.log(delete this);
+    }
+
     gameStatus() {
         this.trackScore();
         if (this.requiredDragonFood <= this.foundFood ) {
             this.beatLevel();
             this.clearGame();
+        
             clearInterval(this.timerSet)
             clearInterval(this.gameSet)
         } else if ( this.seconds <= -1 ) {
             this.lost();
+
             clearInterval(this.timerSet)
             clearInterval(this.gameSet)
         }
@@ -183,34 +204,25 @@ class Game {
     }
 
     lost() {
-        const board = document.querySelector('canvas');
-        const ctx = board.getContext('2d');
-        ctx.clearRect(0, 0, innerWidth, innerHeight);
+        this.clearGame()
 
-        //toggle popup on
+        //toggle popup on with lost message
         let popUp = document.querySelector(".popup-container")
-        popUp.setAttribute('id', 'popup-on')
+            popUp.setAttribute('id', 'popup-on')
         let popupTitle = document.querySelector(".popup-title")
-        popupTitle.innerHTML = "GAME OVER"
+            popupTitle.innerHTML = "GAME OVER"
         let li1 = document.createElement('li')
-        li1.innerHTML = "You weren't able to feed the hungry dragon today, but there's always tomorrow. Try again and here's a hint:"
+            li1.innerHTML = "You weren't able to feed the hungry dragon today, but there's always tomorrow. Try again and here's a hint:"
         let li2 = document.createElement('li')
-        li2.innerHTML = "Market's generally have more resources than a home. Try visiting them more next time!"
+            li2.innerHTML = "Market's generally have more resources than a home. Try visiting them more next time!"
         let popupMessage = document.querySelector(".popup-message")
-        popupMessage.appendChild(li1)
-        popupMessage.appendChild(li2)
+            popupMessage.appendChild(li1)
+            popupMessage.appendChild(li2)
         let button = document.querySelector("#reload-button")
-        button.style.display = 'inline'
-        button.innerHTML = "Restart Game"
+            button.style.display = 'inline'
+            button.innerHTML = "Restart Game"
         let img = document.querySelector("#popup-character")
-        img.src = 'lib/assets/char-head-icon.png'
-    }
-
-    clearGame() {
-        // document.removeEventListener('keydown', this.action(event));
-        const board = document.querySelector('canvas');
-        const ctx = board.getContext('2d');
-        ctx.clearRect(0, 0, innerWidth, innerHeight);
+            img.src = 'lib/assets/char-head-icon.png'
     }
 
     tips(foodItem, points, sameStructure) {
