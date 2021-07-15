@@ -26,7 +26,6 @@ class Game {
     }
 
     startTimer() {
-        
         let li = document.querySelector('.init-level')
         li.classList.remove('init-level')
         li.classList.add('timer-child')
@@ -68,27 +67,27 @@ class Game {
         this.user.place();
         this.action();
     }
-
+    
     action() { // main gameplay logic and flow here
         this.board.placeStructures();
+        
+        document.addEventListener('keydown', (event) => {
+        this.trackScore();
+        clearInterval(this.gameSet)
+        this.event = event
+        const board = document.querySelector('canvas');
+        const ctx = board.getContext('2d');
+        ctx.clearRect(0, 0, innerWidth, innerHeight);
+        
+        this.gameSet = setInterval( () => this.directUser(), 15);
+        this.user.place();
+        this.gameStatus();
 
-        window.addEventListener('keydown', (event) => {
-            this.trackScore();
-            clearInterval(this.gameSet)
-            this.event = event
-            const board = document.querySelector('canvas');
-            const ctx = board.getContext('2d');
-            ctx.clearRect(0, 0, innerWidth, innerHeight);
-            
-            this.gameSet = setInterval( () => this.directUser(), 15);
-            this.user.place();
-            this.gameStatus();
-
-            while (this.timerStart < 1) { // check for setting timer once per game
-                this.startTimer();
-                this.timerStart ++
-            }
-        }, true)
+        while (this.timerStart < 1) { // check for setting timer once per game
+            this.startTimer();
+            this.timerStart ++
+        }
+        });
     }
 
     directUser() { // call to user, directs user movement
@@ -168,13 +167,11 @@ class Game {
             let button1 = document.querySelector('#end-level-1')
             let button2 = document.querySelector('#end-level-2')
             if (this.level === 1) {
-                // container.innerHTML = `Waiting for you..`
                 button1.classList.add('nxt-level')
                 button1.removeAttribute('id','end-level-1')
-                console.log(button1)
             } else if (this.level === 2) {
                 button2.classList.add('nxt-level')
-                button2.removeAttribute('id', 'end-level-1')
+                button2.removeAttribute('id', 'end-level-2')
             }
         }
     }
@@ -186,15 +183,13 @@ class Game {
     }
 
     clearGame() {
-        document.removeEventListener('keydown', this.action);
+        // document.removeEventListener('keydown', this.action(event));
         const board = document.querySelector('canvas');
         const ctx = board.getContext('2d');
         ctx.clearRect(0, 0, innerWidth, innerHeight);
         let timers = document.querySelectorAll(".timer")
-
-        console.log(this.level)
+        // console.log(this.level)
         let bar = document.querySelector(".load-bar")
-        bar.style.width = '0%'
     }
 
     tips(foodItem, points, sameStructure) {

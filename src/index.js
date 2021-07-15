@@ -25,29 +25,29 @@ window.addEventListener('DOMContentLoaded', () => {
     ul1.appendChild(ulLi1)
     ul1.appendChild(ulLi2)
 
+    let level1 = new Game(1, 5, 100, 6, 4);
+
     let button = document.getElementById("popup-button")
     button.addEventListener('click', runLevel1);
 
     function runLevel1(event) {
         event.preventDefault();
         gameInit.removeAttribute('id', 'popup-on');
-        const level1 = new Game(1, 5, 100, 6, 4);
         level1.play();
         button.remove();
         button.removeEventListener('click', runLevel1);
+        
     }
-
-
-
+    // document.addEventListener('keydown', level1.action)
     
-
     let level2Button = document.querySelector("#end-level-1");
     level2Button.addEventListener( 'click', (event) => {
         event.preventDefault();
         console.log('level 2!')
         level2Button.remove();
-        const level2 = new Game(2, 20, 1500, 4, 3)
-        level2.play();
+        level1 = new Game(2, 20, 1500, 4, 3)
+        level1.play();
+        // let that = this;
         
         // gameInit.setAttribute('id', 'popup-on')
         // let div = document.querySelector('img-button')
