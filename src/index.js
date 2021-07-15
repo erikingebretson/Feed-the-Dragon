@@ -17,9 +17,9 @@ window.addEventListener('DOMContentLoaded', () => {
         ul1.innerHTML = "Controls"
         ul1.classList.add("controls")
     let ulLi1 = document.createElement('li')
-        ulLi1.innerHTML = "<strong>Arrow keys:</strong> will navigate your character through the village"
+        ulLi1.innerHTML = "Arrow keys: navigates your character through the village"
     let ulLi2 = document.createElement('li')
-        ulLi2.innerHTML = "Space bar: will stop your character"
+        ulLi2.innerHTML = "Space bar: stops your character"
         popupMessage.appendChild(li1)
         popupMessage.appendChild(li2)
         popupMessage.appendChild(ul1)

@@ -182,7 +182,7 @@ body {
     align-items: center;
     /* width: 10%; */
     padding: 15px 25px 8px 25px;
-    margin: 15px 5px 0px 5px;
+    margin:25px 15px 0px 15px;
     background-color: rgba(77,100,108, .7);
     /* border: solid .1mm rgba(77,100,108, .4); */
     border-radius: 1.5mm;
@@ -203,6 +203,9 @@ body {
 
 .popup li {
     margin: 25px 25px;
+    line-height: 32px;
+    /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 500; */
 }
 
 .popup > div {
@@ -215,6 +218,14 @@ body {
 .img-button > img {
     width: 120px;
     height: auto;
+}
+
+.popup > div {
+    display: flex;
+    align-content: flex-start;
+    /* justify-content: flex-start; */
+    justify-items: flex-start;
+    /* align-items: center; */
 }
 
 #popup-button {

@@ -62,8 +62,6 @@ class Board {
     userBoxCheck(pos) {
         let num1 = 300 - pos[0]
         let num2 = 300 - pos[1]
-        console.log(num1)
-        console.log(num2)
         if ((num1 > -100 && num1 < 100) && (num2 > -100 && num2 < 100)) {
             return true;
         } 
