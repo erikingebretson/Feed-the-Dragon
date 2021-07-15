@@ -436,8 +436,9 @@ aside {
     width: 72px;
 }
 
-.legend > ul > li {
+.legend > ul > li > img {
     text-decoration: none;
+    vertical-align: middle;
     margin: 10px;
     /* background-color: rgba(129,123,105, .85); */
     border-radius: 1.5mm;

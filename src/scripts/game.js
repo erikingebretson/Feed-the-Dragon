@@ -18,6 +18,7 @@ class Game {
         this.gameSet = ''
         this.lastVisited = ''
         this.keyEvent = ''
+        this.levelOverMessage= 0;
         this.trackScore();
     }
 
@@ -25,10 +26,15 @@ class Game {
         let li = document.querySelector('.init-level')
             li.classList.remove('init-level')
             li.classList.add('timer-child')
-            li.innerHTML = `00:${this.seconds}`;
+        if (this.seconds > 0) {
+            li.innerHTML = `00:${this.seconds}`
+        } else {
+            li.innerHTML = `00:00`
+        }
+
         if (this.seconds === this.totalSeconds) this.seconds --;
         this.timerSet = setInterval(() => {
-            if ( this.second < 0) {
+            if ( this.second <= 0) {
                 li.innerHTML = `00:00`
             } else if (this.seconds > 9) {
                 li.innerHTML = `00:${this.seconds}`
@@ -65,16 +71,22 @@ class Game {
         this.board.placeStructures();
         // this.action();
         let that = this;
-        document.addEventListener('keydown', that.action.bind(that))
+        if (this.levelStatus === 'incomplete') {
+            document.addEventListener('keydown', that.action.bind(that))
+        } else {
+            document.removeEventListener('keydown', that.action.bind(that));
+        }
     }
     
     action(event) { // main gameplay logic and flow here
+        let that = this;
+        if (this.levelStatus === 'complete') document.removeEventListener('keydown', that.action.bind(that));
         this.board.placeStructures();
         event.preventDefault();
         event.stopPropagation();
         // document.addEventListener('keydown', (event) => {
-        console.log(this.level)
-        console.log(this.foundFood)
+        // console.log(this.level)
+        // console.log(this.foundFood)
         
         this.trackScore();
         clearInterval(this.gameSet)
@@ -87,7 +99,8 @@ class Game {
         this.user.place();
         this.gameStatus();
 
-        while (this.timerStart < 1) { // check for setting timer once per game
+        // check for setting timer once per game
+        while (this.timerStart < 1) { 
             this.startTimer();
             this.timerStart ++
         }
@@ -162,27 +175,31 @@ class Game {
         ctx.clearRect(0, 0, innerWidth, innerHeight);
     }
 
-    destroy() {
-        console.log(delete this);
-    }
-
+    // destroy() { // destroy has not worked...
+    //     delete this.level;
+    //     delete this.foundFood;
+    //     this = undefined;
+    //     console.log(delete this);
+    //     delete this;
+    // }
+    
     gameStatus() {
         this.trackScore();
         if (this.requiredDragonFood <= this.foundFood ) {
             this.beatLevel();
             this.clearGame();
-        
+            
             clearInterval(this.timerSet)
             clearInterval(this.gameSet)
         } else if ( this.seconds <= -1 ) {
-            this.lost();
             this.clearGame();
+            this.lost();
             
             clearInterval(this.timerSet)
             clearInterval(this.gameSet)
         }
     }
-
+    
     beatLevel() {
         // let container = document.querySelector(".timer")
         if (this.levelStatus !== 'complete') {
@@ -190,7 +207,7 @@ class Game {
             
             let li = document.querySelector(".timer-child");
             li.remove();
-
+            
             let button1 = document.querySelector('#end-level-1')
             let button2 = document.querySelector('#end-level-2')
             if (this.level === 1) {
@@ -199,32 +216,59 @@ class Game {
             } else if (this.level === 2) {
                 button2.classList.add('nxt-level')
                 button2.removeAttribute('id', 'end-level-2')
+            } else if (this.level === 3) {
+                this.won()
             }
         }
     }
 
-    lost() {
-        this.clearGame()
-
-        //toggle popup on with lost message
-        let popUp = document.querySelector(".popup-container")
+    won() {
+        while (this.levelOverMessage < 1) {
+            let popUp = document.querySelector(".popup-container")
             popUp.setAttribute('id', 'popup-on')
-        let popupTitle = document.querySelector(".popup-title")
-            popupTitle.innerHTML = "GAME OVER"
-        let li1 = document.createElement('li')
-            li1.innerHTML = "You weren't able to feed the hungry dragon today, but there's always tomorrow. Try again and here's a hint:"
-        let li2 = document.createElement('li')
-            li2.innerHTML = "Market's generally have more resources than a home. Try visiting them more next time!"
-        let popupMessage = document.querySelector(".popup-message")
+            let popupTitle = document.querySelector(".popup-title")
+            popupTitle.innerHTML = "You Won!"
+            let li1 = document.createElement('li')
+            li1.innerHTML = "Thanks for playing my game!<br><br>This was a fun excercise in Javascript DOM manipulation, CSS, and Canvas. I hope you enjoyed the experience and just maybe had fun along the way!"
+            let li2 = document.createElement('li')
+            li2.innerHTML = "If you haven't already, check out my GitHub, LinkedIn, or send me an email."
+            let popupMessage = document.querySelector(".popup-message")
             popupMessage.appendChild(li1)
             popupMessage.appendChild(li2)
-        let button = document.querySelector("#reload-button")
+            let button = document.querySelector("#reload-button")
             button.style.display = 'inline'
             button.innerHTML = "Restart Game"
-        let img = document.querySelector("#popup-character")
+            let img = document.querySelector("#popup-character")
             img.src = 'lib/assets/char-head-icon.png'
+            this.levelOverMessage++;
+        }
     }
-
+    
+    lost() {
+        this.clearGame()
+        
+        //toggle popup on with lost message
+        while (this.levelOverMessage < 1) {
+            let popUp = document.querySelector(".popup-container")
+                popUp.setAttribute('id', 'popup-on')
+            let popupTitle = document.querySelector(".popup-title")
+                popupTitle.innerHTML = "GAME OVER"
+            let li1 = document.createElement('li')
+                li1.innerHTML = "You weren't able to feed the hungry dragon today, but there's always tomorrow. Try again and here's a hint:"
+            let li2 = document.createElement('li')
+                li2.innerHTML = "Market's generally have more resources than a home. Try visiting them more next time!"
+            let popupMessage = document.querySelector(".popup-message")
+                popupMessage.appendChild(li1)
+                popupMessage.appendChild(li2)
+            let button = document.querySelector("#reload-button")
+                button.style.display = 'inline'
+                button.innerHTML = "Restart Game"
+            let img = document.querySelector("#popup-character")
+                img.src = 'lib/assets/char-head-icon.png'
+            this.levelOverMessage ++;
+        }
+    }
+    
     tips(foodItem, points, sameStructure) {
         let tip = document.querySelector('.tip');
         if (sameStructure) {

@@ -17,7 +17,7 @@ window.addEventListener('DOMContentLoaded', () => {
         ul1.innerHTML = "Controls"
         ul1.classList.add("controls")
     let ulLi1 = document.createElement('li')
-        ulLi1.innerHTML = "Arrow keys: will navigate your character through the village"
+    ulLi1.innerHTML = "<strong>Arrow keys:</strong> will navigate your character through the village"
     let ulLi2 = document.createElement('li')
         ulLi2.innerHTML = "Space bar: will stop your character"
         popupMessage.appendChild(li1)
@@ -27,7 +27,7 @@ window.addEventListener('DOMContentLoaded', () => {
         ul1.appendChild(ulLi2)
 
     
-    const level1 = new Game(1, 15, 500, 6, 4);
+    let level1 = new Game(1, 5, 100, 6, 4);
     let startButton = document.getElementById("popup-button")
     startButton.addEventListener('click', runLevel1);
     
@@ -45,18 +45,11 @@ window.addEventListener('DOMContentLoaded', () => {
         ulLi2.remove();
     };
 
-    // gameInit.setAttribute('id', 'popup-on')
-    // let div = document.querySelector('img-button')
-    // let button = document.createElement('button')
-    // button.innerHTML = 'Begin' 
-
-
-    const level2 = new Game(2, 20, 1500, 4, 3)
+    const level2 = new Game(2, 5, 100, 4, 3)
     let level2Button = document.querySelector("#end-level-1");
     level2Button.addEventListener('click', runLevel2);
 
     function runLevel2(event) {
-        level1.destroy();
         event.preventDefault();
         event.stopPropagation();
         gameInit.removeAttribute('id', 'popup-on');
@@ -66,7 +59,7 @@ window.addEventListener('DOMContentLoaded', () => {
     };
     
     
-    const level3 = new Game(3, 10, 1000, 2, 4) 
+    const level3 = new Game(3, 5, 100, 2, 4) 
     let level3Button = document.querySelector("#end-level-2");
     level3Button.addEventListener('click', runLevel3)
     
@@ -82,4 +75,7 @@ window.addEventListener('DOMContentLoaded', () => {
     
     let reloadButton = document.getElementById('reload-button')
     reloadButton.addEventListener('click', window.location.reload.bind(window.location));
+
+    // refactor with the below
+    // alternate logic -- create a gamehandler class that stores and instantiates each level
 });
