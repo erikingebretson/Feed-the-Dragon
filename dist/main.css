@@ -60,8 +60,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: rgba(128,128,0, .1);
-    /* box-shadow: inset 0 0 15px black; */
+    /* background: rgba(128,128,0, .1); */
+    background: rgba(229, 229, 220, 0.8);
 }
 .top-nav {
     align-self: center;
@@ -159,7 +159,7 @@ body {
     align-items: center;
     align-content: center;
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(229, 229, 220, 0.8);
     width: 550px;
     max-width: 100%; 
     /* play with toggling max-width on and off */
