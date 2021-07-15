@@ -43,6 +43,7 @@ class Game {
             }
             this.loadBar();
             this.tips();
+            this.gameStatus(); //just toggled this on...
             if (this.seconds > -1) {
                 this.seconds--;
             } else if (this.second <= -1) {
