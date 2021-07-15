@@ -9,7 +9,7 @@ body {
     align-content: center;
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     margin-top: 5px;
     margin-right: 10px;
@@ -20,6 +20,7 @@ body {
     background-color: rgba(77,100,108, .7);
     border-radius: 1.5mm;
     color: rgba(53,30,28);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
 }
 
 .dragon-box > img {
@@ -56,15 +57,28 @@ body {
     font-size: 28px;
     font-weight: 700;
     color: rgba(53,30,28);
+    margin-bottom: 5px;
 }
 
 .connects > li > img {
     height: 35px;
+    
 }
+
+/* .connects > li:nth-child(3) > img {
+    height: 45px;
+    width: 45px;
+}
+
+.connects > li:nth-child(3) {
+    padding: 0px 5px 5px 5px;
+    margin: 5px 5px 0px 5px;
+} */
 
 .connects > li:hover {
     background-color: rgba(117,125,117, .75);
     border-radius: 1.5mm;
+    margin-bottom: 5px;
 }
 
 .popup-container {
@@ -99,7 +113,7 @@ body {
     width: 550px;
     max-width: 100%; 
     /* play with toggling max-width on and off */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, .2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
     border-radius: 1.5mm;
     color: rgba(53,30,28);
 }
@@ -114,7 +128,7 @@ body {
     margin: 15px 5px 0px 5px;
     background-color: rgba(77,100,108, .7);
     border-radius: 1.5mm;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .3);
     border-radius: 1.5mm;
 }
 .popup > h3 > img {
@@ -155,7 +169,7 @@ body {
     color:	rgba(220,48,35);
     background-color: rgba(77,100,108);
     border: 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, .5);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .3);
     border-radius: 1.5mm;
 }
 
@@ -169,7 +183,7 @@ body {
     color:	rgba(220,48,35);
     background-color: rgba(77,100,108);
     border: 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, .5);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, .3);
     border-radius: 1.5mm;
     display: none;
 }
@@ -178,7 +192,7 @@ body {
     background-color: rgba(117,125,117, .45);
     font-size: 34px;
     font-weight: 900;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .3);
     border-radius: 1.5mm;    
     margin: 20px 35px;
     padding: 5px;
@@ -199,7 +213,7 @@ body {
     color:	rgba(220,48,35);
     background-color: rgba(77,100,108);
     border: 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .3);
     border-radius: 1.5mm;
 }
 
@@ -209,7 +223,7 @@ body {
 
 canvas {
     border-radius: 1.5mm;
-    
+    box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
     background-color: rgba(117,125,117, .7);
 }
 
@@ -238,6 +252,7 @@ aside {
     color: rgba(53,30,28);
     font-size: 22px;
     width: 200px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
 }
 
 .countdown {
@@ -274,7 +289,7 @@ aside {
     color:	rgba(220,48,35);
     background-color: rgba(77,100,108);
     border: 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .3);
     border-radius: 1.5mm;
 }
 
@@ -290,13 +305,14 @@ aside {
     color:	rgba(220,48,35);
     background-color: rgba(77,100,108);
     border: 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+    box-shadow: 0 2px 4px rgba(117,125,117, .45);
     border-radius: 1.5mm;
 }
 
 .start-button:hover, .nxt-level:hover, #popup-button:hover, #reload-button:hover {
     transition: 150ms ease-in-out;
-    background-color: rgba(77,100,108, .2);
+    background-color: rgba(117,125,117, .45);
+    
 }
 
 .timer {
@@ -461,11 +477,12 @@ footer {
     display: flex;
     justify-content: space-evenly;
     background-color: rgba(77,100,108, .7);
-    width: 112vh;
+    width: 1010px;
     padding: 10px 10px;
     border: 0;
     border-radius: 1.5mm;
     color: 	rgba(53,30,28);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
 }
 
 footer div {
