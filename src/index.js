@@ -45,7 +45,7 @@ window.addEventListener('DOMContentLoaded', () => {
         ulLi2.remove();
     };
 
-    const level2 = new Game(2, 20, 1500, 4, 3)
+    let level2 = new Game(2, 20, 1500, 4, 3)
     //testing fix for level 2 variable dup
     let level2Button = document.querySelector("#end-level-1");
     level2Button.addEventListener('click', runLevel2);
@@ -61,7 +61,7 @@ window.addEventListener('DOMContentLoaded', () => {
     };
     
     
-    const level3 = new Game(3, 10, 1000, 2, 4) 
+    let level3 = new Game(3, 10, 1000, 2, 4) 
     let level3Button = document.querySelector("#end-level-2");
     level3Button.addEventListener('click', runLevel3)
     
