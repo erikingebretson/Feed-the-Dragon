@@ -46,6 +46,7 @@ window.addEventListener('DOMContentLoaded', () => {
     };
 
     const level2 = new Game(2, 20, 1500, 4, 3)
+    //testing fix for level 2 variable dup
     let level2Button = document.querySelector("#end-level-1");
     level2Button.addEventListener('click', runLevel2);
 
