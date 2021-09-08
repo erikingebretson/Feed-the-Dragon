@@ -28,7 +28,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
     
     let level1 = new Game(1, 25, 1500, 6, 4);
-    // let level1 = new Game(1, 5, 10, 6, 4);
     let startButton = document.getElementById("popup-button")
     startButton.addEventListener('click', runLevel1);
     
@@ -47,7 +46,6 @@ window.addEventListener('DOMContentLoaded', () => {
     };
 
     const level2 = new Game(2, 20, 1500, 4, 3)
-    // const level2 = new Game(2, 20, 10, 4, 3)
     let level2Button = document.querySelector("#end-level-1");
     level2Button.addEventListener('click', runLevel2);
 
