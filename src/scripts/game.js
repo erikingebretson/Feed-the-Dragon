@@ -96,8 +96,6 @@ class Game {
         event.preventDefault();
         event.stopPropagation();
         // document.addEventListener('keydown', (event) => {
-        // console.log(this.level)
-        // console.log(this.foundFood)
         
         this.trackScore();
         clearInterval(this.gameSet)
@@ -201,7 +199,13 @@ class Game {
         if (this.requiredDragonFood <= this.foundFood ) {
             this.beatLevel();
             this.clearGame();
-            
+
+            const board = document.querySelector('canvas');
+            const ctx = board.getContext('2d');
+            ctx.fillStyle = "#351E1C"
+            ctx.font = "32px Yanone Kaffeesatz";
+            ctx.fillText(`Press Level ${this.level + 1} button to keep playing.`, 30, 120)
+
             clearInterval(this.timerSet)
             clearInterval(this.gameSet)
         } else if ( this.seconds <= -1 ) {
@@ -215,9 +219,9 @@ class Game {
     
     beatLevel() {
         // let container = document.querySelector(".timer")
+        
         if (this.levelStatus !== 'complete') {
             this.levelStatus = 'complete'
-            
             let li = document.querySelector(".timer-child");
             li.remove();
 
@@ -225,6 +229,8 @@ class Game {
             
             let button1 = document.querySelector('#end-level-1')
             let button2 = document.querySelector('#end-level-2')
+
+
             if (this.level === 1) {
                 ulPrompt.innerHTML = "Keep going!"
                 button1.classList.add('nxt-level')
