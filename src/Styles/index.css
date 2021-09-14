@@ -114,6 +114,7 @@ body {
     background-color: rgba(229, 229, 220, 0.8);
     width: 550px;
     max-width: 100%; 
+    z-index: 10;
     /* play with toggling max-width on and off */
     box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
     border-radius: 1.5mm;
@@ -239,11 +240,28 @@ body {
     margin: 5px 5px;
 }
 
+.canvas-container {
+    /* position: absolute; */
+    width: 600px;
+    height: 600px;
+}
+
+.canvas-container > img {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    z-index: -1;
+}
+
 canvas {
     border-radius: 1.5mm;
+    position: absolute;
+    z-index: -1;
+    left: 1;
     box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
-    background-color: rgba(117,125,117, .7);
     border: solid .2mm rgba(117,125,117, .4);
+    background-color: rgba(117,125,117, .7);
+    /* background: transparent; */
 }
 
 .main {
@@ -847,9 +865,9 @@ footer img {
 
         .food {
             height: 40px;
-            /* width: 90%;     */
+            width: 100%;    
             padding: 10px;
-            font-size: 44px;
+            font-size: 34px;
             font-weight: 900;
             color: 	rgba(220,48,35, .9);
             background-color: rgba(77,100,108, .9);
