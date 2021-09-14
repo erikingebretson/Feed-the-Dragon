@@ -154,11 +154,14 @@ body {
 .popup-container {
     display: flex;
     justify-content: center;
-    align-items: center;
-    align-content: center;
-    position: fixed;
-    height: 1000vw;
-    width: 1000vh;
+    align-items: flex-start;
+    align-content: flex-start;
+    top: 0;
+    position: absolute;
+    /* margin-top: 40vh; */
+    /* padding: 200vh 200vw; */
+    height: 100vw;
+    width: 100vw;
     border-radius: 1.5mm;
     background-color: rgba(0,0,0, .75);
     /* selectors to hide popup below  */
@@ -179,6 +182,7 @@ body {
     align-items: center;
     align-content: center;
     text-align: center;
+    margin-top: 5vh;
     background-color: rgba(229, 229, 220, 0.8);
     width: 550px;
     max-width: 100%; 
@@ -1115,6 +1119,143 @@ footer img {
             transform: scale(1.2);
             /* background-color: rgba(117,125,117, .5); */
             border-radius: 1.5mm;
+        }
+
+        .popup {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            text-align: center;
+            margin-top: 2.5vh;
+            background-color: rgba(229, 229, 220, 0.8);
+            width: 550px;
+            max-width: 100%; 
+            z-index: 10;
+            /* play with toggling max-width on and off */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+            border-radius: 1.5mm;
+            color: rgba(53,30,28);
+        }
+
+        .popup > h3 {
+            font-size: 48px;
+            font-weight: 900;
+            display: flex;
+            align-items: center;
+            /* width: 10%; */
+            padding: 15px 25px 8px 25px;
+            margin:25px 15px 0px 15px;
+            background-color: rgba(77,100,108, .7);
+            /* border: solid .1mm rgba(77,100,108, .4); */
+            border-radius: 1.5mm;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .3);
+            border-radius: 1.5mm;
+        }
+        .popup > h3 > img {
+            width: 55px;
+            margin: 0px 15px;
+        }
+
+        .popup > ul {
+            font-size: 24px;
+            font-weight: 300;
+            margin: 15px 10px 15px 10px;
+            
+        }
+
+        .popup li {
+            margin: 25px 25px;
+            line-height: 32px;
+            /* font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: 500; */
+        }
+
+        .popup > div {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .img-button > img {
+            width: 120px;
+            height: auto;
+        }
+
+        .popup > div {
+            display: flex;
+            align-content: flex-start;
+            /* justify-content: flex-start; */
+            justify-items: flex-start;
+            /* align-items: center; */
+        }
+
+        #popup-button {
+            /* animation: pulse 2s infinite; */
+            border: none;
+            background-color: transparent;
+            font-weight: 900;
+            padding: 10px 20px 10px 20px;
+            margin: 30px 10px 60px 10px;
+            font-size: 40px;
+            color:	rgba(220,48,35);
+            background-color: rgba(77,100,108);
+            border: solid .2mm rgba(77,100,108, .7);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, .3);
+            border-radius: 1.5mm;
+        }
+
+        #reload-button {
+            border: none;
+            background-color: transparent;
+            font-weight: 900;
+            padding: 5px 15px;
+            margin: 30px 10px 15px 10px;
+            font-size: 45px;
+            color:	rgba(220,48,35);
+            background-color: rgba(77,100,108);
+            border: 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, .3);
+            border-radius: 1.5mm;
+            display: none;
+        }
+
+        .controls {
+            background-color: rgba(117,125,117, .45);
+            border: solid .1mm rgba(117,125,117, .45);
+            font-size: 34px;
+            font-weight: 900;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .3);
+            border-radius: 1.5mm;    
+            margin: 20px 35px;
+            padding: 5px;
+        }
+
+        .controls li {
+            font-weight: 500;
+            font-size: 22px;
+        }
+
+        .start-button {
+            transform: scale(1);
+            border: none;
+            /* background-color: transparent; */
+            font-weight: 900;
+            height: 40px;
+            width: 80%;
+            font-size: 22px;
+            color:	rgba(220,48,35);
+            background-color: rgba(77,100,108);
+            border: 0;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .3);
+            border-radius: 1.5mm;
+            
+        }
+
+        .controls li {
+            margin: 5px 5px;
         }
     }
 /*!*************************************************************************************************************************************!*\
