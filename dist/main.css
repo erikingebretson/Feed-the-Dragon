@@ -675,6 +675,7 @@ footer img {
 
         .connects > li {
             padding: 5px 5px 0px 5px;
+            margin-bottom: 0px;
             font-size: 28px;
             font-weight: 700;
             color: rgba(53,30,28);
@@ -1007,6 +1008,81 @@ footer img {
         footer img {
             height: 25px;
             padding: 0px 10px;
+        }
+    }
+
+    @media screen and (max-height: 740px) {
+        .top-nav {
+            align-self: center;
+            align-content: center;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 3px;
+            margin-right: 0px;
+            margin-left: 0px;
+
+            max-width: 1010px;
+            min-width: 977px;
+            width: 97vw;
+            height: auto;
+            background-color: rgba(77,100,108, .7);
+            border-radius: 1.5mm;
+            color: rgba(53,30,28);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, .3);
+            border: solid .2mm rgba(77,100,108, .4);  
+        }
+
+        .dragon-box > img {
+            height: 40px;
+            width: auto;
+            margin: 0px 0px;
+        }
+
+        .title {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin: 3px 0px
+        }
+
+        .title > h1 {
+            margin: 0px 10px;
+            /* margin-bottom: 0px; */
+            margin-right: 20px;
+            font-weight: 900;
+            font-size: 38px;
+            color: rgba(53,30,28, .9);
+        }
+
+        .connects, .popup-connects {
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: auto;
+            height: auto;
+            border-radius: 1.5mm;
+        }
+
+        .connects > li {
+            padding: 5px 5px 0px 5px;
+            margin-bottom: 0px;
+            font-size: 28px;
+            font-weight: 700;
+            color: rgba(53,30,28);
+        }
+
+        .connects > li > a > img {
+            height: 25px; 
+        }
+
+        .connects > li:hover {
+            /* margin-bottom: 5px; */
+            transition: 150ms ease-in-out;
+            transform: scale(1.2);
+            /* background-color: rgba(117,125,117, .5); */
+            border-radius: 1.5mm;
         }
     }
 /*!*************************************************************************************************************************************!*\
