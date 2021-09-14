@@ -255,6 +255,9 @@ class Game {
                 li1.innerHTML = "Thanks for playing Feed the Dragon, game inspired by a beloved pup!<br><br>This was a fun excercise in Javascript DOM manipulation, CSS, and Canvas. I hope you enjoyed the experience and just maybe had fun along the way!"
             let li2 = document.createElement('li')
                 li2.innerHTML = "If you haven't already, check out my GitHub, LinkedIn, or send me an email."
+            let button = document.querySelector("#reload-button")
+                button.style.display = 'inline'
+                button.innerHTML = "Restart Game"
             let popupMessage = document.querySelector(".popup-message")
                 popupMessage.appendChild(li1)
                 popupMessage.appendChild(li2)
