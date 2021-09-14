@@ -27,8 +27,7 @@ window.addEventListener('DOMContentLoaded', () => {
         ul1.appendChild(ulLi2)
 
     
-    // let level1 = new Game(1, 25, 1500, 6, 4);
-    let level1 = new Game(1, 25, 10, 6, 4);
+    let level1 = new Game(1, 25, 1500, 6, 4);
     let startButton = document.getElementById("popup-button")
     startButton.addEventListener('click', runLevel1);
     
@@ -46,8 +45,7 @@ window.addEventListener('DOMContentLoaded', () => {
         ulLi2.remove();
     };
 
-    // let level2 = new Game(2, 20, 1500, 4, 3)
-    let level2 = new Game(2, 20, 10, 4, 3)
+    let level2 = new Game(2, 20, 1500, 4, 3)
     //testing fix for level 2 variable dup
     let level2Button = document.querySelector("#end-level-1");
     level2Button.addEventListener('click', runLevel2);
@@ -63,8 +61,7 @@ window.addEventListener('DOMContentLoaded', () => {
     };
     
     
-    // let level3 = new Game(3, 10, 1000, 2, 4) 
-    let level3 = new Game(3, 10, 10, 2, 4) 
+    let level3 = new Game(3, 10, 1000, 2, 4) 
     let level3Button = document.querySelector("#end-level-2");
     level3Button.addEventListener('click', runLevel3)
     
