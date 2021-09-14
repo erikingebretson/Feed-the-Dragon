@@ -629,7 +629,7 @@ footer img {
         }
 
         .connects > li:hover {
-            /* margin-bottom: 5px; */
+            margin-bottom: 0px;
             transition: 150ms ease-in-out;
             transform: scale(1.2);
             /* background-color: rgba(117,125,117, .5); */
@@ -1021,7 +1021,7 @@ footer img {
         }
 
         .connects > li:hover {
-            /* margin-bottom: 5px; */
+            margin-bottom: 0px;
             transition: 150ms ease-in-out;
             transform: scale(1.2);
             /* background-color: rgba(117,125,117, .5); */
